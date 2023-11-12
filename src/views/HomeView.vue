@@ -7,12 +7,12 @@
     <v-alert text closable v-model="alert.show" :type="alert.type">{{ alert.message }}
     </v-alert>
     <v-row justify="center">
-      <v-col class="text-center" md="2" sm="12" >
+      <!-- <v-col class="text-center" md="2" sm="12" >
         <v-btn color="primary" @click="suForm = true">sign up</v-btn>
-      </v-col>
+      </v-col> -->
 
       <v-col class="text-center" md="2" sm="12" >
-        <v-btn color="success" @click="suForm = false">sign in </v-btn>
+        <v-btn color="success" >sign in </v-btn>
       </v-col>
 
     </v-row>
@@ -20,37 +20,10 @@
 
     <v-row justify="center">
       <v-col md="6" sm="6">
-        <v-card v-if="suForm">
+    
+
+
           <v-card-title>
-            Sign up
-          </v-card-title>
-          <v-card-text>
-            <!--funcion de login(signup)-->
-            <v-form class="ma-3" @submit.prevent="" ref="signupForm">
-
-              <v-text-field label="Name" prepend-icon="mdi-account" :rules="nameRules" v-model="user.name"></v-text-field>
-              <v-text-field label="Email" prepend-icon="mdi-email" :rules="emailRules"
-                v-model="user.email"></v-text-field>
-              <v-text-field label="Password" prepend-icon="mdi-lock" type="password" :rules="passwordRules"
-                v-model="user.password"></v-text-field>
-
-              <!--validamos aqui mismo si se selecciono una una opcion del radio buton-->
-              <v-radio-group row :rules="[(v) => !!v || 'please choose one']">
-                <v-radio label="Professor" value="professor"></v-radio>
-                <v-radio label="Student" value="student"></v-radio>
-              </v-radio-group>
-
-              <v-btn block color="primary mt-3" type="submit">sign up</v-btn>
-            </v-form>
-
-
-          </v-card-text>
-        </v-card>
-
-
-        <v-card v-else>
-          <v-card-title>
-            Sign In
           </v-card-title>
           <v-card-text>
             <!--funcion de login(signup)-->
@@ -73,7 +46,6 @@
 
 
           </v-card-text>
-        </v-card>
       </v-col>
 
     </v-row>
@@ -174,3 +146,4 @@ export default {
 
 };
 </script>
+
