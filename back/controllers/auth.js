@@ -68,7 +68,7 @@ authentication.signUp = async (req, res) => {
 
 authentication.signIn = async (req, res) => {
     const { control, password, rol } = req.body;
-    console.log(req)
+   // console.log(req)
     // Compara la contraseña proporcionada con el hash almacenado
     if (rol == 'personal') {
 
@@ -108,10 +108,10 @@ authentication.signIn = async (req, res) => {
         //alumno
     } else {
         const alum_has = await(await pool.query(
-            'SELECT control_a,nombre_a,carrera_a,password_a,email_a FROM alumnos WHERE control_a =$1',
+            'SELECT control_a,nombre_a,password_a,email_a FROM alumnos WHERE control_a =$1',
             [control])).rows;
             const has=alum_has[0].password_a
-            console.log(has)
+            //console.log(has)
 
           // console.log(password)
 

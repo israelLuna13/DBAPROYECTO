@@ -16,6 +16,7 @@ app.use(fileUpload({useTempFiles:true}));//uso de archivos temporales
 
 //routers
 app.use('/', require('./routes/auth.routes'));
+app.use('/', require('./routes/inscription.routes'));
 //app.use('/professor', require('./routes/professor.routes'))
 //app.use('/student',require('./routes/student.routes'));
 

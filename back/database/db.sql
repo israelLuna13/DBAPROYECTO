@@ -337,3 +337,15 @@ VALUES ('20130085',9.9,7.0,90.0,'A','T130504','T138408','IQUI-2010-232','IQUE-ME
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
 VALUES ('20130085',9.9,7.0,90.0,'A','T130504','ACF-0902','IQUI-2010-232','IQUE-MET-2020-01','AGO-DIC');
+
+
+-- consultas 
+-- obtenemos una tabla con los nombre de los alumnos que estan en el kardex 
+select control_a,nombre_a,fkalumno_k from kardex inner join alumnos 
+on kardex.fkalumno_k = alumnos.control_a;
+
+-- buscamos en la tabla de kardex al  alumno que se quiere inscribir
+SELECT *
+FROM kardex
+WHERE fkAlumno_k = 'cve del alumno a inscribir';
+

@@ -37,8 +37,14 @@ const routes = [
 
 
   },
+  {
+    path: '/kardex',
+    name: 'kardex',
+    // component: HomeView
+    component: () => import(/* webpackChunkName: "about" */ '../views/inscription/inscription.vue'),
+    meta: { requiresAuth: true } // Esta meta indica que requiere autenticación
 
-]
+  },]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
