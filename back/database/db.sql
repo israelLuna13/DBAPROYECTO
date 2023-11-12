@@ -53,8 +53,8 @@ CREATE TABLE kardex
     fkSemestre_k VARCHAR(20),
     FOREIGN KEY(fkAlumno_k) REFERENCES alumnos(control_a),
     FOREIGN KEY(fkPersonal_k,fkMateria_k,fkGrupo_k,fkPlanE_k,fkEspecialidad_k,fSkemestre_k) REFERENCES grupo(fkPersonal_g,fkMateria_g,cve_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
-
 );
+
 
 --tabla materia plan de estudio
 CREATE TABLE materiaPlanE
