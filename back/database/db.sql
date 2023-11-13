@@ -40,7 +40,7 @@ CREATE TABLE personal
 --tabla kardex 
 CREATE TABLE kardex
 (
-    cve_k VARCHAR(10) PRIMARY KEY,
+    cve_k VARCHAR(10),
     fkAlumno_k VARCHAR(50),
     calificacionR_k FLOAT NOT NULL,
     calificacionP_k FLOAT NOT NULL,
@@ -51,8 +51,9 @@ CREATE TABLE kardex
     fkPlanE_k VARCHAR(50),
     fkEspecialidad_k VARCHAR(50),
     fkSemestre_k VARCHAR(20),
+    PRIMARY KEY(cve_k),
     FOREIGN KEY(fkAlumno_k) REFERENCES alumnos(control_a),
-    FOREIGN KEY(fkPersonal_k,fkMateria_k,fkGrupo_k,fkPlanE_k,fkEspecialidad_k,fSkemestre_k) REFERENCES grupo(fkPersonal_g,fkMateria_g,cve_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+    FOREIGN KEY(fkPersonal_k,fkMateria_k,fkGrupo_k,fkPlanE_k,fkEspecialidad_k,fkSemestre_k) REFERENCES grupo(fkPersonal_g,fkMateria_g,cve_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
 );
 
 
@@ -76,7 +77,8 @@ CREATE TABLE materia
     creditosT_m SMALLINT NOT NULL
 );
 
---tabla grupo
+-- --tabla grupo
+
 CREATE TABLE grupo
 (
     cve_g VARCHAR(5),
@@ -264,6 +266,8 @@ VALUES ('AGO-DIC', 'SCC-1017','IQUI-2010-232','IQUE-AMB-2020-02');
 
  -- grupo de sistemas 
 
+-- SELECT fkmateria_mpe FROM materiaPlanE WHERE fkPlanE_mpe = 'ISIC-2010-224' AND fkEspecialidad_mpe = 'ISIE-TWM-2020-01'
+
 -- grupo B ALBA CABELLO RAFAEL  DBA ing sistemas 
 INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
 VALUES ('B', 'AGO-DIC','T130701','SCB-1001','ISIC-2010-224','ISIE-TWM-2020-01','AGO-DIC');
@@ -300,11 +304,14 @@ VALUES ('A', 'AGO-DIC','T130504','ACF-0902','IQUI-2010-232','IQUE-MET-2020-01','
 
 
 -- grupo A  Metodos numericos   ZAPATA  DAVILA  JOSE LUIS ing quimica 
-INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
-VALUES ('A', 'AGO-DIC','T130504','T138408','IQUI-2010-232','IQUE-MET-2020-01','AGO-DIC');
+
+--INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+--VALUES ('A', 'AGO-DIC','T130504','T138408','IQUI-2010-232','IQUE-MET-2020-01','AGO-DIC');
+
 -- grupo B  metodos numericos   ZAPATA  DAVILA  JOSE LUIS  ing quimica 
-INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
-VALUES ('B', 'AGO-DIC','T130504','T138408','IQUI-2010-232','IQUE-MET-2020-01','AGO-DIC');
+
+--INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+--VALUES ('B', 'AGO-DIC','T130504','T138408','IQUI-2010-232','IQUE-MET-2020-01','AGO-DIC');
 
 -- grupo A  Algebra lineal      VENEGAS VILLEGAS    SERGIO ing quimica 
 INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
@@ -319,23 +326,23 @@ VALUES ('A', 'AGO-DIC','T131013','ACF-0903','IQUI-2010-232','IQUE-MET-2020-01','
 -------------
  -- alumnos de sistemas 
 
-INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 8.8,9.9,80.0,'B','T130701','SCB-1001','ISIC-2010-224','ISIE-TWM-2020-01','AGO-DIC');
 
-INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 7.7,8.9,90.0,'A','T130712','TWD-2002','ISIC-2010-224','ISIE-TWM-2020-01','AGO-DIC');
 
-INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 9.9,7.9,90.0,'B','T130712','TWD-2004','ISIC-2010-224','ISIE-TWM-2020-01','AGO-DIC');
 ----------------------
  -- alumnos de quimica
-INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130085',9.9,7.0,90.0,'A','T131013','ACF-0903','IQUI-2010-232','IQUE-MET-2020-01','AGO-DIC');
  
-INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130085',9.9,7.0,90.0,'A','T130504','T138408','IQUI-2010-232','IQUE-MET-2020-01','AGO-DIC');
 
-INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130085',9.9,7.0,90.0,'A','T130504','ACF-0902','IQUI-2010-232','IQUE-MET-2020-01','AGO-DIC');
 
 
