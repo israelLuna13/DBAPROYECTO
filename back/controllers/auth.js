@@ -89,6 +89,7 @@ authentication.signIn = async (req, res) => {
             } else {
                 if (resultado) {
                     // La contraseña proporcionada es correcta
+
                     res.status(200).json({
                     ncontrol:per_info[0].cve_per,
                     nombre:per_info[0].nombre_per,
@@ -108,7 +109,7 @@ authentication.signIn = async (req, res) => {
         //alumno
     } else {
         const alum_has = await(await pool.query(
-            'SELECT control_a,nombre_a,password_a,email_a FROM alumnos WHERE control_a =$1',
+            'SELECT control_a,nombre_a,password_a,email_a,ingreso_a,periodo_a FROM alumnos WHERE control_a =$1',
             [control])).rows;
             const has=alum_has[0].password_a
             //console.log(has)
@@ -126,11 +127,18 @@ authentication.signIn = async (req, res) => {
             } else {
                 if (resultado) {
                     // La contraseña proporcionada es correcta
+                    const year = '2023'
+                    //obtenemos la fecha de ingreso del alumno 
+            
+            
                     res.status(200).json({
                     ncontrol:alum_has[0].control_a,
                     nombre:alum_has[0].nombre_a,
                     email:alum_has[0].email_a,    
-                    rol: 'alumno'
+                    rol: 'alumno',
+                    ingreso:alum_has[0].ingreso_a,
+                    periodo:alum_has[0].periodo_a
+
                     });
                 } else {
                     // La contraseña proporcionada es incorrecta

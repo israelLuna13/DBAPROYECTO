@@ -2,6 +2,8 @@ const pool = require('../database/keys');
 
 const inscription = {};
 
+
+
 inscription.getkardex = async (req, res) => {
     //obtenemos el num de control
     const { control } = req.body;
@@ -37,5 +39,9 @@ inscription.getkardex = async (req, res) => {
       });
     }
   };
+
   
+inscription.inscription = async(req,res)=>{
+
+}  
 module.exports = inscription;

@@ -40,20 +40,20 @@ CREATE TABLE personal
 --tabla kardex 
 CREATE TABLE kardex
 (
-    cve_k VARCHAR(10) PRIMARY KEY,
-    fkAlumno_k VARCHAR(50),
+
+    fkAlumno_k VARCHAR(13),
     calificacionR_k FLOAT NOT NULL,
-    calificacionP_k FLOAT NOT NULL,
-    promedio_k FLOAT NOT NULL,
-    fkGrupo_k VARCHAR(5),
-    fkPersonal_k VARCHAR(50),
-    fkMateria_k VARCHAR(10),
-    fkPlanE_k VARCHAR(50),
-    fkEspecialidad_k VARCHAR(50),
-    fkSemestre_k VARCHAR(20),
-    FOREIGN KEY(fkAlumno_k) REFERENCES alumnos(control_a),
-    FOREIGN KEY(fkPersonal_k,fkMateria_k,fkGrupo_k,fkPlanE_k,fkEspecialidad_k,fSkemestre_k) REFERENCES grupo(fkPersonal_g,fkMateria_g,cve_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
-);
+    calificacionP_k FLOAT NOT NULL,       
+    promedio_k FLOAT NOT NULL,                                                                              
+    fkGrupo_k VARCHAR(5), 
+    fkPersonal_k VARCHAR(10),      
+    fkMateria_k VARCHAR(10), 
+    fkPlanE_k VARCHAR(15),      
+    fkEspecialidad_k VARCHAR(20),      
+    fkSemestre_k VARCHAR(15),
+    PRIMARY KEY(fkAlumno_k,fkPersonal_k,fkMateria_k,fkGrupo_k,fkPlanE_k,fkEspecialidad_k,fkSemestre_k)       ,
+    FOREIGN KEY (fkAlumno_k) REFERENCES alumnos(control_a),   
+    FOREIGN KEY(fkPersonal_k,fkMateria_k,fkGrupo_k,fkPlanE_k,fkEspecialidad_k,fkSemestre_k) REFERENCES grupo(fkPersonal_g,fkMateria_g,cve_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g));
 
 
 --tabla materia plan de estudio
@@ -145,27 +145,27 @@ CREATE TABLE Prerrequisitos
 -- INGENIRIA EN SISTEMAS
     --DBA ing sistemas web movil 
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('AGO-DIC', 'SCB-1001','ISIC-2010-224','ISIE-TWM-2020-01');
+VALUES ('8', 'SCB-1001','ISIC-2010-224','ISIE-TWM-2020-01');
 
     --DBA ing sistemas tics
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('AGO-DIC', 'SCB-1001','ISIC-2010-224','ISIE-TIC-2020-02');
+VALUES ('8', 'SCB-1001','ISIC-2010-224','ISIE-TIC-2020-02');
 
 --desarrollo en ios , Ing sistemas , web movil 
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('AGO-DIC', 'TWD-2002','ISIC-2010-224','ISIE-TWM-2020-01');
+VALUES ('8', 'TWD-2002','ISIC-2010-224','ISIE-TWM-2020-01');
 
  -- algebra lineal ing sistemas web movil
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('AGO-DIC', 'ACF-0903','ISIC-2010-224','ISIE-TWM-2020-01');
+VALUES ('2', 'ACF-0903','ISIC-2010-224','ISIE-TWM-2020-01');
 
  -- algebra lineal ing sistemas tics
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('AGO-DIC', 'ACF-0903','ISIC-2010-224','ISIE-TIC-2020-02');
+VALUES ('2', 'ACF-0903','ISIC-2010-224','ISIE-TIC-2020-02');
 
  --admin redes ing sistemas web movil
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('AGO-DIC', 'SCA-1002','ISIC-2010-224','ISIE-TWM-2020-01');
+VALUES ('8', 'SCA-1002','ISIC-2010-224','ISIE-TWM-2020-01');
 
  --admin redes ing sistemas tics
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
@@ -173,35 +173,60 @@ VALUES ('AGO-DIC', 'SCA-1002','ISIC-2010-224','ISIE-TIC-2020-02');
 
 -- algoritmos y programacion ing sistemas web movil
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('AGO-DIC', 'MAE-1001','ISIC-2010-224','ISIE-TWM-2020-01');
+VALUES ('1', 'MAE-1001','ISIC-2010-224','ISIE-TWM-2020-01');
 
 -- algoritmos y programacion ing sistemas web movil
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('AGO-DIC', 'MAE-1001','ISIC-2010-224','ISIE-TIC-2020-02');
+VALUES ('1', 'MAE-1001','ISIC-2010-224','ISIE-TIC-2020-02');
 
  -- big data ing sistemas tics
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('AGO-DIC', 'TIC-2002','ISIC-2010-224','ISIE-TIC-2020-02');
+VALUES ('7', 'TIC-2002','ISIC-2010-224','ISIE-TIC-2020-02');
 
  --calculo diferencial ing sistemas web movil
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('AGO-DIC', 'ACC-0907','ISIC-2010-224','ISIE-TWM-2020-01');
+VALUES ('1', 'ACC-0907','ISIC-2010-224','ISIE-TWM-2020-01');
 
- --calculo diferencial ing sistemas tics
-INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('AGO-DIC', 'ACC-0907','ISIC-2010-224','ISIE-TIC-2020-02');
+
 
  --desarrollo en android ing sistemas web movil
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('AGO-DIC', 'TWD-2001','ISIC-2010-224','ISIE-TWM-2020-01');
+VALUES ('7', 'TWD-2001','ISIC-2010-224','ISIE-TWM-2020-01');
 
  --pila 1 ing sistemas web movil
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('AGO-DIC', 'TWM-2003','ISIC-2010-224','ISIE-TWM-2020-01');
+VALUES ('7', 'TWM-2003','ISIC-2010-224','ISIE-TWM-2020-01');
 
  --pila 2 ing sistemas web movil
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('AGO-DIC', 'TWD-2004','ISIC-2010-224','ISIE-TWM-2020-01');
+VALUES ('8', 'TWD-2004','ISIC-2010-224','ISIE-TWM-2020-01');
+
+
+--primer semestre 
+
+ --calculo diferencial ing sistemas web movil
+INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
+VALUES ('1', 'ACC-0907','ISIC-2010-224','ISIE-TWM-2020-01');
+
+--fundamentos de programacion 
+INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
+VALUES ('1', 'SCD-1008','ISIC-2010-224','ISIE-TWM-2020-01');
+
+--taller de etica 
+INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
+VALUES ('1', 'ACA-0907','ISIC-2010-224','ISIE-TWM-2020-01');
+
+--matematicas discretas 
+INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
+VALUES ('1', 'AEF-1041','ISIC-2010-224','ISIE-TWM-2020-01');
+
+-- algoritmos y programacion ing sistemas web movil
+INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
+VALUES ('1', 'MAE-1001','ISIC-2010-224','ISIE-TWM-2020-01');
+
+--fundamentos de investigacion 
+INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
+VALUES ('1', 'ACC-0906','ISIC-2010-224','ISIE-TWM-2020-01');
 
 -----------------------------------------------------------------------------------------
 
@@ -209,39 +234,39 @@ VALUES ('AGO-DIC', 'TWD-2004','ISIC-2010-224','ISIE-TWM-2020-01');
 
  --CALCULO INTEGRAL ING QUIMICA  MATALURGIA                                                  
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('AGO-DIC', 'ACF-0902','IQUI-2010-232','IQUE-MET-2020-01');
+VALUES ('3', 'ACF-0902','IQUI-2010-232','IQUE-MET-2020-01');
 
 --CALCULO INTEGRAL ING QUIMICA AMBIENTAL
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('AGO-DIC', 'ACF-0902','IQUI-2010-232','IQUE-AMB-2020-02');
+VALUES ('3', 'ACF-0902','IQUI-2010-232','IQUE-AMB-2020-02');
 
 --tall investigacion 1 ING QUIMICA  MATALURGIA                                                  
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('AGO-DIC', 'ACA-0909','IQUI-2010-232','IQUE-MET-2020-01');
+VALUES ('6', 'ACA-0909','IQUI-2010-232','IQUE-MET-2020-01');
 
 --tall investigacion 1 ING QUIMICA AMBIENTAL
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('AGO-DIC', 'ACA-0909','IQUI-2010-232','IQUE-AMB-2020-02');
+VALUES ('6', 'ACA-0909','IQUI-2010-232','IQUE-AMB-2020-02');
 
 --Algebra lineal 1 ING QUIMICA  MATALURGIA                                                  
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('AGO-DIC', 'ACF-0903','IQUI-2010-232','IQUE-MET-2020-01');
+VALUES ('2', 'ACF-0903','IQUI-2010-232','IQUE-MET-2020-01');
 
 --algebra lineal 1 ING QUIMICA AMBIENTAL
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('AGO-DIC', 'ACF-0903','IQUI-2010-232','IQUE-AMB-2020-02');
+VALUES ('2', 'ACF-0903','IQUI-2010-232','IQUE-AMB-2020-02');
 
 --calculo diferencial 1 ING QUIMICA  MATALURGIA                                                  
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('AGO-DIC', 'ACC-0907','IQUI-2010-232','IQUE-MET-2020-01');
+VALUES ('1', 'ACC-0907','IQUI-2010-232','IQUE-MET-2020-01');
 
 --calculo diferencial 1 ING QUIMICA AMBIENTAL
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('AGO-DIC', 'ACC-0907','IQUI-2010-232','IQUE-AMB-2020-02');
+VALUES ('1', 'ACC-0907','IQUI-2010-232','IQUE-AMB-2020-02');
 
 --calculo vectorial 1 ING QUIMICA  MATALURGIA                                                  
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('AGO-DIC', 'ACF-0904','IQUI-2010-232','IQUE-MET-2020-01');
+VALUES ('4', 'ACF-0904','IQUI-2010-232','IQUE-MET-2020-01');
 
 --calculo vectorila 1 ING QUIMICA AMBIENTAL
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
@@ -249,11 +274,11 @@ VALUES ('AGO-DIC', 'ACF-0904','IQUI-2010-232','IQUE-AMB-2020-02');
 
 --metodos numericos 1 ING QUIMICA  MATALURGIA                                                  
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('AGO-DIC', 'SCC-1017','IQUI-2010-232','IQUE-MET-2020-01');
+VALUES ('5', 'SCC-1017','IQUI-2010-232','IQUE-MET-2020-01');
 
 --metodos numericos 1 ING QUIMICA AMBIENTAL
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('AGO-DIC', 'SCC-1017','IQUI-2010-232','IQUE-AMB-2020-02');
+VALUES ('5', 'SCC-1017','IQUI-2010-232','IQUE-AMB-2020-02');
 
 
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -263,55 +288,106 @@ VALUES ('AGO-DIC', 'SCC-1017','IQUI-2010-232','IQUE-AMB-2020-02');
                                                 -- VALORES PARA LA TABLA GRUPO
 
  -- grupo de sistemas 
+-------------------------------------------------------------------------
+ --grupos de primer semestre sistemas , habra dos grupos por materia
+
+--grupo a calculo diferencial  	ALBA	GARCIA	JOSE DE JESUS
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('A', 'AGO-DIC','T137201','ACC-0907','ISIC-2010-224','ISIE-TWM-2020-01','1');
+
+--grupo b calculo diferencial  	ALBA	GARCIA	JOSE DE JESUS
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('B', 'AGO-DIC','T137201','ACC-0907','ISIC-2010-224','ISIE-TWM-2020-01','1');
+
+--Grupo A taller de etica  	RAMOS	ROSALES	JOSEFINA
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('A', 'AGO-DIC','T139314','ACA-0907','ISIC-2010-224','ISIE-TWM-2020-01','1');
+
+--Grupo B taller de etica  	RAMOS	ROSALES	JOSEFINA
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('B', 'AGO-DIC','T139314','ACA-0907','ISIC-2010-224','ISIE-TWM-2020-01','1');
+
+--grupo a mate discretas  	RIOS	QUINTANA	SAMUEL DIAMANTE
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('A', 'AGO-DIC','T130019','AEF-1041','ISIC-2010-224','ISIE-TWM-2020-01','1');
+
+--grupo b mate discretas  	RIOS	QUINTANA	SAMUEL DIAMANTE
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('B', 'AGO-DIC','T130019','AEF-1041','ISIC-2010-224','ISIE-TWM-2020-01','1');
+
+--grupo a alogirtomos LOPEZ	CISEÑA	ARMANDO
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('A', 'AGO-DIC','T139311','MAE-1001','ISIC-2010-224','ISIE-TWM-2020-01','1');
+
+--grupo b alogirtomos LOPEZ	CISEÑA	ARMANDO
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('B', 'AGO-DIC','T139311','MAE-1001','ISIC-2010-224','ISIE-TWM-2020-01','1');
+
+ -- grupo A Fundamentos de programacion 	LOPEZ	CISEÑA	ARMANDO
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('A', 'AGO-DIC','T139311','SCD-1008','ISIC-2010-224','ISIE-TWM-2020-01','1');
+
+ -- grupo B Fundamentos de programacion	LOPEZ	CISEÑA	ARMANDO
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('B', 'AGO-DIC','T139311','SCD-1008','ISIC-2010-224','ISIE-TWM-2020-01','1');
+
+--grupo a fundamentos de investigacion  	DE SANTIAGO	BARRAGAN	MAYELA ESTHER
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('A', 'AGO-DIC','T138406','ACC-0906','ISIC-2010-224','ISIE-TWM-2020-01','1');
+
+--grupo b fundamentos de investigacion  	DE SANTIAGO	BARRAGAN	MAYELA ESTHER
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('B', 'AGO-DIC','T138406','ACC-0906','ISIC-2010-224','ISIE-TWM-2020-01','1');
+----------------------------------------------------------
 
 -- grupo B ALBA CABELLO RAFAEL  DBA ing sistemas 
 INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
-VALUES ('B', 'AGO-DIC','T130701','SCB-1001','ISIC-2010-224','ISIE-TWM-2020-01','AGO-DIC');
+VALUES ('B', 'AGO-DIC','T130701','SCB-1001','ISIC-2010-224','ISIE-TWM-2020-01','8');
 
 -- grupo A  ARANDA  MUNGUIA GERARDO ADRIAN DBA ing sistemas 
 INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
-VALUES ('B', 'AGO-DIC','T139101','SCB-1001','ISIC-2010-224','ISIE-TWM-2020-01','AGO-DIC');
+VALUES ('B', 'AGO-DIC','T139101','SCB-1001','ISIC-2010-224','ISIE-TWM-2020-01','8');
 
 -- Grupo A ulloa IOS 
 INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
-VALUES ('A', 'AGO-DIC','T130712','TWD-2002','ISIC-2010-224','ISIE-TWM-2020-01','AGO-DIC');
+VALUES ('A', 'AGO-DIC','T130712','TWD-2002','ISIC-2010-224','ISIE-TWM-2020-01','8');
 
 -- grupo A Algebra lineal   SALDIVAR GOMEZ ALFREDO 
 INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
-VALUES ('A', 'AGO-DIC','T130021','ACF-0903','ISIC-2010-224','ISIE-TWM-2020-01','AGO-DIC');
+VALUES ('A', 'AGO-DIC','T130021','ACF-0903','ISIC-2010-224','ISIE-TWM-2020-01','2');
 
 -- grupo B Algebra lineal   SALAS CHAVEZ ARIANNA VICTORIA
 INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
-VALUES ('B', 'AGO-DIC','T131616','ACF-0903','ISIC-2010-224','ISIE-TWM-2020-01','AGO-DIC');
+VALUES ('B', 'AGO-DIC','T131616','ACF-0903','ISIC-2010-224','ISIE-TWM-2020-01','2');
 
 -- grupo A pila 2 ulloa
 INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
-VALUES ('B', 'AGO-DIC','T130712','TWD-2004','ISIC-2010-224','ISIE-TWM-2020-01','AGO-DIC');
+VALUES ('B', 'AGO-DIC','T130712','TWD-2004','ISIC-2010-224','ISIE-TWM-2020-01','8');
 -----------------------------------------
 
  -- grupo de quimica
 
 -- grupo A  calculo integral    VIESCA  ROJAS   VICTOR HUGO  ing quimica 
 INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
-VALUES ('B', 'AGO-DIC','T130504','ACF-0902','IQUI-2010-232','IQUE-MET-2020-01','AGO-DIC');
+VALUES ('B', 'AGO-DIC','T130504','ACF-0902','IQUI-2010-232','IQUE-MET-2020-01','3');
 -- grupo B  calculo integral    VIESCA  ROJAS   VICTOR HUGO  ing quimica 
 INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
-VALUES ('A', 'AGO-DIC','T130504','ACF-0902','IQUI-2010-232','IQUE-MET-2020-01','AGO-DIC');
+VALUES ('A', 'AGO-DIC','T130504','ACF-0902','IQUI-2010-232','IQUE-MET-2020-01','3');
 
 
 -- grupo A  Metodos numericos   ZAPATA  DAVILA  JOSE LUIS ing quimica 
 INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
-VALUES ('A', 'AGO-DIC','T130504','T138408','IQUI-2010-232','IQUE-MET-2020-01','AGO-DIC');
+VALUES ('A', 'AGO-DIC','T130504','SCC-1017','IQUI-2010-232','IQUE-MET-2020-01','5');
 -- grupo B  metodos numericos   ZAPATA  DAVILA  JOSE LUIS  ing quimica 
 INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
-VALUES ('B', 'AGO-DIC','T130504','T138408','IQUI-2010-232','IQUE-MET-2020-01','AGO-DIC');
+VALUES ('B', 'AGO-DIC','T130504','SCC-1017','IQUI-2010-232','IQUE-MET-2020-01','5');
 
 -- grupo A  Algebra lineal      VENEGAS VILLEGAS    SERGIO ing quimica 
 INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
-VALUES ('B', 'AGO-DIC','T131013','ACF-0903','IQUI-2010-232','IQUE-MET-2020-01','AGO-DIC');
+VALUES ('B', 'AGO-DIC','T131013','ACF-0903','IQUI-2010-232','IQUE-MET-2020-01','2');
 -- grupo B  Algebra lineal VENEGAS  VILLEGAS    SERGIO  ing quimica 
 INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
-VALUES ('A', 'AGO-DIC','T131013','ACF-0903','IQUI-2010-232','IQUE-MET-2020-01','AGO-DIC');
+VALUES ('A', 'AGO-DIC','T131013','ACF-0903','IQUI-2010-232','IQUE-MET-2020-01','2');
 
 
 --------------------------------------------------------------------------------------------
@@ -320,23 +396,23 @@ VALUES ('A', 'AGO-DIC','T131013','ACF-0903','IQUI-2010-232','IQUE-MET-2020-01','
  -- alumnos de sistemas 
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
-VALUES ('20130026', 8.8,9.9,80.0,'B','T130701','SCB-1001','ISIC-2010-224','ISIE-TWM-2020-01','AGO-DIC');
+VALUES ('20130026', 8.8,9.9,80.0,'B','T130701','SCB-1001','ISIC-2010-224','ISIE-TWM-2020-01','8');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
-VALUES ('20130026', 7.7,8.9,90.0,'A','T130712','TWD-2002','ISIC-2010-224','ISIE-TWM-2020-01','AGO-DIC');
+VALUES ('20130026', 7.7,8.9,90.0,'A','T130712','TWD-2002','ISIC-2010-224','ISIE-TWM-2020-01','8');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
-VALUES ('20130026', 9.9,7.9,90.0,'B','T130712','TWD-2004','ISIC-2010-224','ISIE-TWM-2020-01','AGO-DIC');
+VALUES ('20130026', 9.9,7.9,90.0,'B','T130712','TWD-2004','ISIC-2010-224','ISIE-TWM-2020-01','8');
 ----------------------
  -- alumnos de quimica
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
-VALUES ('20130085',9.9,7.0,90.0,'A','T131013','ACF-0903','IQUI-2010-232','IQUE-MET-2020-01','AGO-DIC');
+VALUES ('20130085',9.9,7.0,90.0,'A','T131013','ACF-0903','IQUI-2010-232','IQUE-MET-2020-01','2');
  
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
-VALUES ('20130085',9.9,7.0,90.0,'A','T130504','T138408','IQUI-2010-232','IQUE-MET-2020-01','AGO-DIC');
+VALUES ('20130085',9.9,7.0,90.0,'A','T130504','SCC-1017','IQUI-2010-232','IQUE-MET-2020-01','5');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
-VALUES ('20130085',9.9,7.0,90.0,'A','T130504','ACF-0902','IQUI-2010-232','IQUE-MET-2020-01','AGO-DIC');
+VALUES ('20130085',9.9,7.0,90.0,'A','T130504','ACF-0902','IQUI-2010-232','IQUE-MET-2020-01','3');
 
 
 -- consultas 
@@ -348,4 +424,27 @@ on kardex.fkalumno_k = alumnos.control_a;
 SELECT *
 FROM kardex
 WHERE fkAlumno_k = 'cve del alumno a inscribir';
+
+
+--ingreso periodo de un alumno
+select ingreso_a, periodo_a from alumnos where control_a = '20130026';
+
+-- filtrado de los grupos por semestre
+ select * from grupo where fksemestre_g = '1';
+
+--para verificar si un alumno se va a incribir por primera vez, tenemos que consultar su fecha de ingreso y periodo, si 
+-- la fecha de ingreso coincide con el año actual y el periodo coinicide con el periodo de los grupos , entonces sera inscripcion por primerz vez
+--const año = fechaActual.getFullYear(); 
+select * from grupo where semestre_g = (select periodo_a from alumnos where control_a = 'D1813008');
+
+--obtener los alumnos que ingresaron en 2023
+select control_a,nombre_a, ingreso_a from alumnos where ingreso_a = '2023'                                                                             limit 20;
+
+-- obtener numero control 
+-- obtener fecha de ingreso y periodo del alumno
+-- el alumno tiene que tener el mismo año que el año actual , si no es igual aqui termina todo
+-- calcular el semestre del alumno
+-- filtrar los grupos de primer semestre 
+-- comparar el periodo del alumno con los periodos de los grupos
+-- validar si el periodo del alumno coincide con el de los grupos , si coincide quiere decir que es nuevo ingreso , si no aqui acaba 
 
