@@ -42,6 +42,36 @@ inscription.getkardex = async (req, res) => {
 
   
 inscription.inscription = async(req,res)=>{
+  const id = req.params.userId;
+
+  // Realizar acciones con el parámetro id, como consultar en la base de datos
+  // y enviar una respuesta al cliente
+  //res.json({ mensaje: `Solicitud GET para inscription con ID ${id}` });
+try {
+  let semestre = 1
+  const  grupos = (await pool.query(
+    'select * from grupo where fksemestre_g = $1;',
+    [semestre])).rows;
+
+    if (grupos.length > 0) {
+      res.status(200).json({
+        grupos:grupos
+        // clave_grupo:grupos[1].cve_g,
+        // personal:grupos[1].fkpersonal_g,
+        // materia:grupos[1].fkmateria_g,
+      })
+      //console.log(res)
+
+    }
+    //console.log(grupos)
+    }
+ catch (error) {
+  console.error('Error:', error);
+  res.status(500).json({
+    message: 'Error en el servidor',
+    error: error.message,
+  });
+}
 
 }  
 module.exports = inscription;
