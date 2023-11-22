@@ -40,6 +40,7 @@ CREATE TABLE personal
 --tabla kardex 
 CREATE TABLE kardex
 (
+<<<<<<< HEAD
 
     fkAlumno_k VARCHAR(13),
     calificacionR_k FLOAT NOT NULL,
@@ -54,6 +55,22 @@ CREATE TABLE kardex
     PRIMARY KEY(fkAlumno_k,fkPersonal_k,fkMateria_k,fkGrupo_k,fkPlanE_k,fkEspecialidad_k,fkSemestre_k)       ,
     FOREIGN KEY (fkAlumno_k) REFERENCES alumnos(control_a),   
     FOREIGN KEY(fkPersonal_k,fkMateria_k,fkGrupo_k,fkPlanE_k,fkEspecialidad_k,fkSemestre_k) REFERENCES grupo(fkPersonal_g,fkMateria_g,cve_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g));
+=======
+    cve_k VARCHAR(10),
+    fkAlumno_k VARCHAR(50),
+    calificacionR_k FLOAT NOT NULL,
+    calificacionP_k FLOAT NOT NULL,
+    promedio_k FLOAT NOT NULL,
+    fkGrupo_k VARCHAR(5),
+    fkPersonal_k VARCHAR(50),
+    fkMateria_k VARCHAR(10),
+    fkPlanE_k VARCHAR(50),
+    fkEspecialidad_k VARCHAR(50),
+    fkSemestre_k VARCHAR(20),
+    FOREIGN KEY(fkAlumno_k) REFERENCES alumnos(control_a),
+    FOREIGN KEY(fkPersonal_k,fkMateria_k,fkGrupo_k,fkPlanE_k,fkEspecialidad_k,fkSemestre_k) REFERENCES grupo(fkPersonal_g,fkMateria_g,cve_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+);
+>>>>>>> c54fe60009d5465674f6de681f8b06797e66db73
 
 
 --tabla materia plan de estudio
@@ -165,7 +182,7 @@ INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad
 VALUES ('2', 'ACF-0903','ISIC-2010-224','ISIE-TIC-2020-02');
 
  --admin redes ing sistemas web movil
-INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
+INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe, fkPlanE_mpe, fkEspecialidad_mpe)
 VALUES ('8', 'SCA-1002','ISIC-2010-224','ISIE-TWM-2020-01');
 
  --admin redes ing sistemas tics
@@ -187,8 +204,15 @@ VALUES ('7', 'TIC-2002','ISIC-2010-224','ISIE-TIC-2020-02');
  --calculo diferencial ing sistemas web movil
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
 VALUES ('1', 'ACC-0907','ISIC-2010-224','ISIE-TWM-2020-01');
+<<<<<<< HEAD
 
 
+=======
+
+ --calculo diferencial ing sistemas tics
+INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
+VALUES ('1', 'ACC-0907','ISIC-2010-224','ISIE-TIC-2020-02');
+>>>>>>> c54fe60009d5465674f6de681f8b06797e66db73
 
  --desarrollo en android ing sistemas web movil
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
@@ -201,6 +225,7 @@ VALUES ('7', 'TWM-2003','ISIC-2010-224','ISIE-TWM-2020-01');
  --pila 2 ing sistemas web movil
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
 VALUES ('8', 'TWD-2004','ISIC-2010-224','ISIE-TWM-2020-01');
+<<<<<<< HEAD
 
 
 --primer semestre 
@@ -228,6 +253,8 @@ VALUES ('1', 'MAE-1001','ISIC-2010-224','ISIE-TWM-2020-01');
 --fundamentos de investigacion 
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
 VALUES ('1', 'ACC-0906','ISIC-2010-224','ISIE-TWM-2020-01');
+=======
+>>>>>>> c54fe60009d5465674f6de681f8b06797e66db73
 
 -----------------------------------------------------------------------------------------
 
@@ -283,6 +310,51 @@ VALUES ('5', 'SCC-1017','IQUI-2010-232','IQUE-AMB-2020-02');
 
 
 ------------------------------------------------------------------------------------------------------------------------------------
+
+-- planE_mpe ( de 3ro a 6to )
+
+-- 3er semestre sistemas
+INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe, fkPlanE_mpe, fkEspecialidad_mpe)
+VALUES ('3', 'AEF-1031','ISIC-2010-224','ISIE-TWM-2020-01');
+
+INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe, fkPlanE_mpe, fkEspecialidad_mpe)
+VALUES ('3', 'ACF-0904','ISIC-2010-224','ISIE-TWM-2020-01');
+
+INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe, fkPlanE_mpe, fkEspecialidad_mpe)
+VALUES ('3', 'AED-1026','ISIC-2010-224','ISIE-TWM-2020-01');
+
+
+-- 4to semestre sistemas
+INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe, fkPlanE_mpe, fkEspecialidad_mpe)
+VALUES ('4', 'ACF-0905','ISIC-2010-224','ISIE-TWM-2020-01');
+
+INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe, fkPlanE_mpe, fkEspecialidad_mpe)
+VALUES ('4', 'SCC-1007','ISIC-2010-224','ISIE-TWM-2020-01');
+
+INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe, fkPlanE_mpe, fkEspecialidad_mpe)
+VALUES ('4', 'SCD-1022','ISIC-2010-224','ISIE-TWM-2020-01');
+
+
+-- 5to semestre sistemas
+INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe, fkPlanE_mpe, fkEspecialidad_mpe)
+VALUES ('5', 'SCC-1017','ISIC-2010-224','ISIE-TWM-2020-01');
+
+INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe, fkPlanE_mpe, fkEspecialidad_mpe)
+VALUES ('5', 'SCC-1010','ISIC-2010-224','ISIE-TWM-2020-01');
+
+INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe, fkPlanE_mpe, fkEspecialidad_mpe)
+VALUES ('5', 'AEB-1055','ISIC-2010-224','ISIE-TWM-2020-01');
+
+
+-- 6to semestre sistemas
+INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe, fkPlanE_mpe, fkEspecialidad_mpe)
+VALUES ('6', 'SCD-1015','ISIC-2010-224','ISIE-TWM-2020-01');
+
+INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe, fkPlanE_mpe, fkEspecialidad_mpe)
+VALUES ('6', 'SCD-1011','ISIC-2010-224','ISIE-TWM-2020-01');
+
+INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe, fkPlanE_mpe, fkEspecialidad_mpe)
+VALUES ('6', 'SCC-1005','ISIC-2010-224','ISIE-TWM-2020-01');
 
 
 ----------------------------------------------------------------------------------------
@@ -365,6 +437,100 @@ VALUES ('B', 'AGO-DIC','T131616','ACF-0903','ISIC-2010-224','ISIE-TWM-2020-01','
 INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
 VALUES ('B', 'AGO-DIC','T130712','TWD-2004','ISIC-2010-224','ISIE-TWM-2020-01','8');
 -----------------------------------------
+
+-- NUEVOS INSERTS...
+-- GRUPOS ( de 3er a 6to )
+
+-- grupo 3er semestre A y B
+
+-- ACF-0904
+
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('A', 'AGO-DIC','T138408','AED-1026','ISIC-2010-224','ISIE-TWM-2020-01','3');
+
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('B', 'AGO-DIC','T139807','AED-1026','ISIC-2010-224','ISIE-TWM-2020-01','3');
+
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('A', 'AGO-DIC','--','ACF-0904','ISIC-2010-224','ISIE-TWM-2020-01','3');
+
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('B', 'AGO-DIC','--','ACF-0904','ISIC-2010-224','ISIE-TWM-2020-01','3');
+
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('A', 'AGO-DIC','T139704','AEF-1031','ISIC-2010-224','ISIE-TWM-2020-01','3');
+
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('B', 'AGO-DIC','T130816','AEF-1031','ISIC-2010-224','ISIE-TWM-2020-01','3');
+
+
+-- =============================================================================================================
+
+-- grupo 4to semestre A y B
+
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('A', 'AGO-DIC','T138104','ACF-0905','ISIC-2010-224','ISIE-TWM-2020-01','4');
+
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('B', 'AGO-DIC','T138506','ACF-0905','ISIC-2010-224','ISIE-TWM-2020-01','4');
+
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('A', 'AGO-DIC','T139202','SCD-1022','ISIC-2010-224','ISIE-TWM-2020-01','4');
+
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('B', 'AGO-DIC','T139202','SCD-1022','ISIC-2010-224','ISIE-TWM-2020-01','4');
+
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('A', 'AGO-DIC','T130211','SCC-1007','ISIC-2010-224','ISIE-TWM-2020-01','4');
+
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('B', 'AGO-DIC','T130016','SCC-1007','ISIC-2010-224','ISIE-TWM-2020-01','4');
+
+-- =============================================================================================================
+
+
+-- grupo 5to semestre A y B
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('A', 'AGO-DIC','T130211','SCC-1017','ISIC-2010-224','ISIE-TWM-2020-01','5');
+
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('B', 'AGO-DIC','T138104','SCC-1017','ISIC-2010-224','ISIE-TWM-2020-01','5');
+
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('A', 'AGO-DIC','T139807','SCC-1010','ISIC-2010-224','ISIE-TWM-2020-01','5');
+
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('B', 'AGO-DIC','T139701','SCC-1010','ISIC-2010-224','ISIE-TWM-2020-01','5');
+
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('A', 'AGO-DIC','T131304','AEB-1055','ISIC-2010-224','ISIE-TWM-2020-01','5');
+
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('B', 'AGO-DIC','T130027','AEB-1055','ISIC-2010-224','ISIE-TWM-2020-01','5');
+-- =============================================================================================================
+
+-- grupo 6to semestre
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('A', 'AGO-DIC','T130114','SCC-1005','ISIC-2010-224','ISIE-TWM-2020-01','6');
+
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('B', 'AGO-DIC','T130017','SCC-1005','ISIC-2010-224','ISIE-TWM-2020-01','6'); --Ruth
+
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('A', 'AGO-DIC','T130016','SCD-1011','ISIC-2010-224','ISIE-TWM-2020-01','6');
+
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('B', 'AGO-DIC','T139307','SCD-1011','ISIC-2010-224','ISIE-TWM-2020-01','6');
+
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('A', 'AGO-DIC','T130818','SCD-1015','ISIC-2010-224','ISIE-TWM-2020-01','6');
+
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('B', 'AGO-DIC','T139807','SCD-1015','ISIC-2010-224','ISIE-TWM-2020-01','6');
+
+-----------------------------------------
+
+
 
  -- grupo de quimica
 
