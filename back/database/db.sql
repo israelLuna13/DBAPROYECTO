@@ -40,7 +40,6 @@ CREATE TABLE personal
 --tabla kardex 
 CREATE TABLE kardex
 (
-<<<<<<< HEAD
 
     fkAlumno_k VARCHAR(13),
     calificacionR_k FLOAT NOT NULL,
@@ -55,22 +54,6 @@ CREATE TABLE kardex
     PRIMARY KEY(fkAlumno_k,fkPersonal_k,fkMateria_k,fkGrupo_k,fkPlanE_k,fkEspecialidad_k,fkSemestre_k)       ,
     FOREIGN KEY (fkAlumno_k) REFERENCES alumnos(control_a),   
     FOREIGN KEY(fkPersonal_k,fkMateria_k,fkGrupo_k,fkPlanE_k,fkEspecialidad_k,fkSemestre_k) REFERENCES grupo(fkPersonal_g,fkMateria_g,cve_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g));
-=======
-    cve_k VARCHAR(10),
-    fkAlumno_k VARCHAR(50),
-    calificacionR_k FLOAT NOT NULL,
-    calificacionP_k FLOAT NOT NULL,
-    promedio_k FLOAT NOT NULL,
-    fkGrupo_k VARCHAR(5),
-    fkPersonal_k VARCHAR(50),
-    fkMateria_k VARCHAR(10),
-    fkPlanE_k VARCHAR(50),
-    fkEspecialidad_k VARCHAR(50),
-    fkSemestre_k VARCHAR(20),
-    FOREIGN KEY(fkAlumno_k) REFERENCES alumnos(control_a),
-    FOREIGN KEY(fkPersonal_k,fkMateria_k,fkGrupo_k,fkPlanE_k,fkEspecialidad_k,fkSemestre_k) REFERENCES grupo(fkPersonal_g,fkMateria_g,cve_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
-);
->>>>>>> c54fe60009d5465674f6de681f8b06797e66db73
 
 
 --tabla materia plan de estudio
@@ -204,15 +187,8 @@ VALUES ('7', 'TIC-2002','ISIC-2010-224','ISIE-TIC-2020-02');
  --calculo diferencial ing sistemas web movil
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
 VALUES ('1', 'ACC-0907','ISIC-2010-224','ISIE-TWM-2020-01');
-<<<<<<< HEAD
 
 
-=======
-
- --calculo diferencial ing sistemas tics
-INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('1', 'ACC-0907','ISIC-2010-224','ISIE-TIC-2020-02');
->>>>>>> c54fe60009d5465674f6de681f8b06797e66db73
 
  --desarrollo en android ing sistemas web movil
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
@@ -225,7 +201,6 @@ VALUES ('7', 'TWM-2003','ISIC-2010-224','ISIE-TWM-2020-01');
  --pila 2 ing sistemas web movil
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
 VALUES ('8', 'TWD-2004','ISIC-2010-224','ISIE-TWM-2020-01');
-<<<<<<< HEAD
 
 
 --primer semestre 
@@ -253,8 +228,6 @@ VALUES ('1', 'MAE-1001','ISIC-2010-224','ISIE-TWM-2020-01');
 --fundamentos de investigacion 
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
 VALUES ('1', 'ACC-0906','ISIC-2010-224','ISIE-TWM-2020-01');
-=======
->>>>>>> c54fe60009d5465674f6de681f8b06797e66db73
 
 -----------------------------------------------------------------------------------------
 

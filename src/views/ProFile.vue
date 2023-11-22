@@ -1,39 +1,85 @@
 <template>
+  <v-app-bar app title="Bienveindo Alumno" color="blue" :elevation="2">
+      <!-- Otros elementos de la barra de aplicación si es necesario -->
+         <!-- Componente a la derecha -->
+         <v-row class="ml-auto">
+        <v-col md="3">
+            {{user.nombre}}
+        </v-col>
+        <v-col md="3">
+            {{user.ncontrol}}
+        </v-col>
+        <v-col md="3">
+            <v-img src="../assets/usuario.png" max-width="40"  alt=""/>
+       
+        </v-col>
+
+        <v-col>
+            <v-btn @click="logout">
+                                 Cerrar Session
+                        </v-btn>
+        </v-col>
+
+      </v-row>
+    </v-app-bar>
+
     <v-container>
         <v-row justify="center">
             <v-col md="6" sm="6">
-                <v-card>
-                    <v-card-title class="text-uppercase">{{ user.rol }}</v-card-title>
+                <v-card color="primary">
+                    <v-card-title class="text-uppercase">Informacion personal</v-card-title>
                     <v-card-text>
-                        <p v-if="user.ingreso === 2023 && user.periodo === 'AGO-DIC'">
-                           <h1>Nuevo Ingreso</h1>
-                              <p v-show="isVisible">Inscribirse</p>
+
+
+                           <p>Nombre: {{ user.nombre}}</p>
+                           <p>Numero de control: {{ user.periodo }}</p>
+                           <p>Año de ingreso: {{ user.ingreso }}</p>
+                           <p>Periodo: {{ user.periodo }}</p>
+                           <p>Rol: {{ user.rol}}</p>
+
+                           <p v-if="user.ingreso === 2023 && user.periodo === 'AGO-DIC'">
+                           <h3>Nuevo Ingreso</h3>
+                                 <v-btn @click="inscription">
+                                 Inscribirse
+                                </v-btn>
                         </p>
                            <p v-else>
-                                 <h1>Bienvenido</h1>
-                                <p>Reinscripcion</p>
+                                <v-btn @click="inscription">
+                                 Reinscripcion
+                                </v-btn>
                            </p>
-                       <h2>{{ user.nombre }}</h2>
-                        <h4>{{ user.ncontrol }}</h4>
-                        <h4>{{ user.ingreso }}</h4>
-                        <h4>{{ user.periodo }}</h4>
-                        <v-btn @click="logout">
-                                 Cerrar Session
-                        </v-btn>
-                        <v-btn @click="inscription">
-                                 Grupos
-                        </v-btn>
+             
+
+             
+                        
+
                     </v-card-text>
                     <v-card>
 
                     </v-card>
                 </v-card>
+
+            </v-col>
+        </v-row>
+
+        <v-row justify="center">
+            <v-col md="6" sm="6">
+                
+                <v-card>
+                <v-card-title>
+                    <v-card-title class="text-uppercase">{{ user.rol }}</v-card-title>
+
+                </v-card-title>
+            </v-card>
             </v-col>
         </v-row>
     </v-container>
 </template>
 
 <script>
+// const fs = require('fs');
+// const PDFDocument = require('pdfkit');
+
 export default {
     data: () => ({
         isVisible: true,

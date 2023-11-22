@@ -49,9 +49,10 @@ inscription.inscription = async(req,res)=>{
   //res.json({ mensaje: `Solicitud GET para inscription con ID ${id}` });
 try {
   let semestre = 1
+  let cvegrupo = 'A'
   const  grupos = (await pool.query(
-    'select * from grupo where fksemestre_g = $1;',
-    [semestre])).rows;
+    ' select cve_g,nombre_m,nombre_per from grupo join personal on grupo.fkpersonal_g = personal.cve_per join materia on  materia.cve_m = grupo.fkmateria_g where fksemestre_g = $1 and cve_g = $2;',
+    [semestre,cvegrupo])).rows;
 
     if (grupos.length > 0) {
       res.status(200).json({
