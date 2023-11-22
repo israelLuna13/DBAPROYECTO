@@ -443,7 +443,8 @@ VALUES ('B', 'AGO-DIC','T130712','TWD-2004','ISIC-2010-224','ISIE-TWM-2020-01','
 
 -- grupo 3er semestre A y B
 
--- ACF-0904
+-- ACF-0904 ( para 3er semestre en grupo, hay un error de llave, ya que es maestro por asignar, y no se tiene clave para ello... no tratar de insertar )
+-- se insertará después.
 
 INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
 VALUES ('A', 'AGO-DIC','T138408','AED-1026','ISIC-2010-224','ISIE-TWM-2020-01','3');
