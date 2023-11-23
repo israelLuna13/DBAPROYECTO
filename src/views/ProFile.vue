@@ -32,7 +32,7 @@
 
 
                            <p>Nombre: {{ user.nombre}}</p>
-                           <p>Numero de control: {{ user.periodo }}</p>
+                           <p>Numero de control: {{ user.ncontrol }}</p>
                            <p>Año de ingreso: {{ user.ingreso }}</p>
                            <p>Periodo: {{ user.periodo }}</p>
                            <p>Rol: {{ user.rol}}</p>
@@ -48,28 +48,37 @@
                                  Reinscripcion
                                 </v-btn>
                            </p>
-             
-
-             
-                        
 
                     </v-card-text>
                     <v-card>
 
                     </v-card>
+
+
                 </v-card>
+
+
 
             </v-col>
         </v-row>
 
         <v-row justify="center">
             <v-col md="6" sm="6">
-                
                 <v-card>
-                <v-card-title>
                     <v-card-title class="text-uppercase">{{ user.rol }}</v-card-title>
+                    <v-card-text>
+                        <!-- <p>Grupo: {{this.grupos.cve_g}}</p>
+                        <p>Materia: {{this.grupos.nombre_m}}</p>
+                        <p>Profesor: {{this.grupos.nombre_per}}</p> -->
+                        <P>{{this.grupos[0]}}</P>
+                        <P>{{this.grupos[1]}}</P>
+                        <P>{{this.grupos[2]}}</P>
+                        <P>{{this.grupos[3]}}</P>
+                        <P>{{this.grupos[4]}}</P>
+                        <P>{{this.grupos[5]}}</P>
+                    </v-card-text>
 
-                </v-card-title>
+
             </v-card>
             </v-col>
         </v-row>
@@ -83,6 +92,7 @@
 export default {
     data: () => ({
         isVisible: true,
+        grupos:[],
         user: { rol: "Default", name: "", ncontrol: "" },
         //numControl:sessionStorage.getItem('ncontrol')
 
@@ -114,7 +124,12 @@ if (userData && userData.ncontrol) {
   try {
     // Hacer la solicitud GET al servidor con el ID como parte de la URL
     const response = await this.axios.get(`/inscription/${userId}`);
-    console.log('Solicitud GET exitosa:', response.data);
+
+
+
+    //this.grupos = response.data.grupos[0];
+    this.grupos = response.data.grupos;
+    console.log('Solicitud GET exitosa:',this.grupos);// response.data.grupos[0]);
 
     // Puedes manejar la respuesta de la solicitud aquí según tus necesidades
 
