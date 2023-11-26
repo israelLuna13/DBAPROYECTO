@@ -44,7 +44,7 @@
                                 </v-btn>
                         </p>
                            <p v-else>
-                                <v-btn @click="inscription">
+                                <v-btn @click="reinscription">
                                  Reinscripcion
                                 </v-btn>
                            </p>
@@ -65,17 +65,14 @@
         <v-row justify="center">
             <v-col md="6" sm="6">
                 <v-card>
-                    <v-card-title class="text-uppercase">{{ user.rol }}</v-card-title>
+                    <v-card-title class="text-uppercase">Carga Academica</v-card-title>
                     <v-card-text>
-                        <!-- <p>Grupo: {{this.grupos.cve_g}}</p>
-                        <p>Materia: {{this.grupos.nombre_m}}</p>
-                        <p>Profesor: {{this.grupos.nombre_per}}</p> -->
-                        <P>{{this.grupos[0]}}</P>
-                        <P>{{this.grupos[1]}}</P>
-                        <P>{{this.grupos[2]}}</P>
-                        <P>{{this.grupos[3]}}</P>
-                        <P>{{this.grupos[4]}}</P>
-                        <P>{{this.grupos[5]}}</P>
+                        <li v-for="grupo in grupos" :key="grupo.cve_g">
+
+                            <p>Grupo:{{ grupo.cve_g }} - Materia:{{ grupo.nombre_m }} - Profesor : {{ grupo.nombre_per }}</p> 
+                            
+                       </li>
+                    
                     </v-card-text>
 
 
@@ -124,9 +121,6 @@ if (userData && userData.ncontrol) {
   try {
     // Hacer la solicitud GET al servidor con el ID como parte de la URL
     const response = await this.axios.get(`/inscription/${userId}`);
-
-
-
     //this.grupos = response.data.grupos[0];
     this.grupos = response.data.grupos;
     console.log('Solicitud GET exitosa:',this.grupos);// response.data.grupos[0]);
@@ -141,6 +135,11 @@ if (userData && userData.ncontrol) {
 } else {
   console.error('Error: userData es nulo o no tiene la propiedad ncontrol.');
 }
+
+    },
+
+    async reinscription(){
+
 
     },
 
