@@ -563,10 +563,10 @@ VALUES ('B', 'AGO-DIC','T139317','MTJ-1006','ISIC-2010-224','ISIE-TWM-2020-01','
 
 --fisica A  	RIOS	VELEZ	GERARDO
 INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
-VALUES ('A', 'AGO-DIC','SCF-1016','MTJ-1006','ISIC-2010-224','ISIE-TWM-2020-01','3');
+VALUES ('A', 'AGO-DIC','T130614','MTJ-1006','ISIC-2010-224','ISIE-TWM-2020-01','3');
 --fisica B  RIOS	VELEZ	GERARDO
 INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
-VALUES ('B', 'AGO-DIC','SCF-1016','MTJ-1006','ISIC-2010-224','ISIE-TWM-2020-01','3');
+VALUES ('B', 'AGO-DIC','T130614','MTJ-1006','ISIC-2010-224','ISIE-TWM-2020-01','3');
 
 
 --operaciones A  	TORRES	MARTINEZ	LAURA CRISTINA
