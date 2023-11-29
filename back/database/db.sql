@@ -234,27 +234,27 @@ VALUES ('1', 'ACC-0906','ISIC-2010-224','ISIE-TWM-2020-01');
 
  --calculo integral ing sistemas web movil
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('1', 'ACF-0902','ISIC-2010-224','ISIE-TWM-2020-01');
+VALUES ('2', 'ACF-0902','ISIC-2010-224','ISIE-TWM-2020-01');
 
 --Desarrollo sustentable
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('1', 'ACD-0908','ISIC-2010-224','ISIE-TWM-2020-01');
+VALUES ('2', 'ACD-0908','ISIC-2010-224','ISIE-TWM-2020-01');
 
 -- probabilidad y estadistica
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('1', 'AEC-1053','ISIC-2010-224','ISIE-TWM-2020-01');
+VALUES ('2', 'AEC-1053','ISIC-2010-224','ISIE-TWM-2020-01');
 
 --programacion 
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('1', 'IQC-1024','ISIC-2010-224','ISIE-TWM-2020-01');
+VALUES ('2', 'IQC-1024','ISIC-2010-224','ISIE-TWM-2020-01');
 
 -- analisis de fluidos
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('1', 'MTC-1003','ISIC-2010-224','ISIE-TWM-2020-01');
+VALUES ('2', 'MTC-1003','ISIC-2010-224','ISIE-TWM-2020-01');
 
 --dinamica
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('1', 'AED-1391','ISIC-2010-224','ISIE-TWM-2020-01');
+VALUES ('2', 'AED-1391','ISIC-2010-224','ISIE-TWM-2020-01');
 
 -----------------------------------------------------------------------------------------
 
@@ -347,6 +347,7 @@ VALUES ('3', 'SCC-1013','ISIC-2010-224','ISIE-TWM-2020-01');
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe, fkPlanE_mpe, fkEspecialidad_mpe)
 VALUES ('4', 'ACF-0905','ISIC-2010-224','ISIE-TWM-2020-01');
 --fundamentos de ing software 
+
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe, fkPlanE_mpe, fkEspecialidad_mpe)
 VALUES ('4', 'SCC-1007','ISIC-2010-224','ISIE-TWM-2020-01');
 --simulacion
@@ -510,6 +511,53 @@ VALUES ('B', 'AGO-DIC','T138406','ACC-0906','ISIC-2010-224','ISIE-TWM-2020-01','
 -------------------------------
 
 --grupos segundo semestre 
+--grupo a calculo integral  	ALBA	GARCIA	JOSE DE JESUS
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('A', 'AGO-DIC','T130205','ACF-0902','ISIC-2010-224','ISIE-TWM-2020-01','2');
+
+--grupo b   integral	ALBA	GARCIA	JOSE DE JESUS
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('B', 'AGO-DIC','T130205','ACF-0902','ISIC-2010-224','ISIE-TWM-2020-01','2');
+
+--Grupo A desa sus  	RAMOS	ROSALES	JOSEFINA
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('A', 'AGO-DIC','T138102','ACD-0908','ISIC-2010-224','ISIE-TWM-2020-01','2');
+
+--Grupo B desa sus  	RAMOS	ROSALES	JOSEFINA
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('B', 'AGO-DIC','T138102','ACD-0908','ISIC-2010-224','ISIE-TWM-2020-01','2');
+
+--grupo a prob y estad  	RIOS	QUINTANA	SAMUEL DIAMANTE
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('A', 'AGO-DIC','T139503','AEC-1053','ISIC-2010-224','ISIE-TWM-2020-01','2');
+
+--grupo b proba y estad 	RIOS	QUINTANA	SAMUEL DIAMANTE
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('B', 'AGO-DIC','T139503','AEC-1053','ISIC-2010-224','ISIE-TWM-2020-01','2');
+
+--grupo a progra LOPEZ	CISEÑA	ARMANDO
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('A', 'AGO-DIC','T137904','IQC-1024','ISIC-2010-224','ISIE-TWM-2020-01','2');
+
+--grupo b progra LOPEZ	CISEÑA	ARMANDO
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('B', 'AGO-DIC','T137904','IQC-1024','ISIC-2010-224','ISIE-TWM-2020-01','2');
+
+ -- grupo A analisis flui 	LOPEZ	CISEÑA	ARMANDO
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('A', 'AGO-DIC','T139311','MTC-1003','ISIC-2010-224','ISIE-TWM-2020-01','2');
+
+ -- grupo B analisi flui	LOPEZ	CISEÑA	ARMANDO
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('B', 'AGO-DIC','T139311','MTC-1003','ISIC-2010-224','ISIE-TWM-2020-01','2');
+
+--grupo a dinamica 	DE SANTIAGO	BARRAGAN	MAYELA ESTHER
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('A', 'AGO-DIC','T138406','AED-1391','ISIC-2010-224','ISIE-TWM-2020-01','2');
+
+--grupo b fdinamica 	DE SANTIAGO	BARRAGAN	MAYELA ESTHER
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('B', 'AGO-DIC','T138406','AED-1391','ISIC-2010-224','ISIE-TWM-2020-01','2');
 
 
 
@@ -550,10 +598,10 @@ VALUES ('B', 'AGO-DIC','T139317','MTJ-1006','ISIC-2010-224','ISIE-TWM-2020-01','
 
 --fisica A  	RIOS	VELEZ	GERARDO
 INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
-VALUES ('A', 'AGO-DIC','T130614','MTJ-1006','ISIC-2010-224','ISIE-TWM-2020-01','3');
+VALUES ('A', 'AGO-DIC','T130614','SCF-1016','ISIC-2010-224','ISIE-TWM-2020-01','3');
 --fisica B  RIOS	VELEZ	GERARDO
 INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
-VALUES ('B', 'AGO-DIC','T130614','MTJ-1006','ISIC-2010-224','ISIE-TWM-2020-01','3');
+VALUES ('B', 'AGO-DIC','T130614','SCF-1016','ISIC-2010-224','ISIE-TWM-2020-01','3');
 
 
 --operaciones A  	TORRES	MARTINEZ	LAURA CRISTINA
@@ -817,180 +865,271 @@ VALUES ('B', 'AGO-DIC','T131013','TWD-2005','ISIC-2010-224','ISIE-TWM-2020-01','
 --alumno 20130026
 --semestre 1
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 0.0 ,9.9,80.0,'A','T137201','ACC-0907',
 'ISIC-2010-224','ISIE-TWM-2020-01','1');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 0.0 ,9.9,80.0,'A','T139314','ACA-0907',
 'ISIC-2010-224','ISIE-TWM-2020-01','1');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 0.0 ,9.0,80.0,'A','T130019','AEF-1041',
 'ISIC-2010-224','ISIE-TWM-2020-01','1');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 0.0 ,9.0,80.0,'A','T139311','MAE-1001',
 'ISIC-2010-224','ISIE-TWM-2020-01','1');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 0.0 ,8.6,80.0,'A','T139311','SCD-1008',
 'ISIC-2010-224','ISIE-TWM-2020-01','1');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 0.0 ,9.6,80.0,'A','T138406','ACC-0906',
 'ISIC-2010-224','ISIE-TWM-2020-01','1');
 
 --segundo semestre 
+INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
+VALUES ('20130026', 0.0 ,9.9,80.0,'A','T130205','ACF-0902',
+'ISIC-2010-224','ISIE-TWM-2020-01','2');
+
+INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
+VALUES ('20130026', 0.0 ,9.9,80.0,'A','T138102','ACD-0908',
+'ISIC-2010-224','ISIE-TWM-2020-01','2');
+
+INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
+VALUES ('20130026', 0.0 ,9.0,80.0,'A','T139503','AEC-1053',
+'ISIC-2010-224','ISIE-TWM-2020-01','2');
+
+INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
+VALUES ('20130026', 0.0 ,9.0,80.0,'A','T137904','IQC-1024',
+'ISIC-2010-224','ISIE-TWM-2020-01','2');
+
+INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
+VALUES ('20130026', 0.0 ,8.6,80.0,'A','T139311','MTC-1003',
+'ISIC-2010-224','ISIE-TWM-2020-01','2');
+
+INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
+VALUES ('20130026', 0.0 ,9.6,80.0,'A','T138406','AED-1391',
+'ISIC-2010-224','ISIE-TWM-2020-01','2');
 
 --tercer semestre 
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
-VALUES ('20130026', 0.0 ,7.0,80.0,'A','T130504','ACF-0902',
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
+VALUES ('20130026', 0.0 ,7.0,80.0,'A','T138408','AED-1026',
 'ISIC-2010-224','ISIE-TWM-2020-01','3');
 
+--estructura de datos 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
-VALUES ('20130026', 0.0 ,9.9,80.0,'A','T138408','AED-1026',
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
+VALUES ('20130026', 8.0 ,3.0,80.0,'A','T131009','ACF-0904',
 'ISIC-2010-224','ISIE-TWM-2020-01','3');
 
+--vectorial 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
-VALUES ('20130026', 0.0 ,9.0,80.0,'A','T131009','ACF-0904',
-'ISIC-2010-224','ISIE-TWM-2020-01','3');
-
-INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 0.0 ,9.0,80.0,'A','T137407','AEF-1031',
 'ISIC-2010-224','ISIE-TWM-2020-01','3');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
-VALUES ('20130026', 0.0 ,8.6,80.0,'A','T139317','MTJ-1006',
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
+VALUES ('20130026', 0.0 ,9.0,80.0,'A','T139317','MTJ-1006',
 'ISIC-2010-224','ISIE-TWM-2020-01','3');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
-VALUES ('20130026', 0.0 ,9.6,80.0,'A','T130614','MTJ-1006',
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
+VALUES ('20130026', 0.0 ,8.6,80.0,'A','T131505','SCC-1013',
 'ISIC-2010-224','ISIE-TWM-2020-01','3');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
+VALUES ('20130026', 0.0 ,9.6,80.0,'A','T130614','SCF-1016',
+'ISIC-2010-224','ISIE-TWM-2020-01','3');
+
+INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 0.0 ,9.6,80.0,'A','T131505','SCC-1013',
 'ISIC-2010-224','ISIE-TWM-2020-01','3');
 
 -- cuarto semestre
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 0.0 ,7.0,80.0,'A','T138104','ACF-0905',
 'ISIC-2010-224','ISIE-TWM-2020-01','4');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 0.0 ,9.9,80.0,'A','T139202','SCD-1022',
 'ISIC-2010-224','ISIE-TWM-2020-01','4');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 0.0 ,9.0,80.0,'A','T130211','SCC-1007',
 'ISIC-2010-224','ISIE-TWM-2020-01','4');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 0.0 ,9.0,80.0,'A','T139003','SCD-1018',
 'ISIC-2010-224','ISIE-TWM-2020-01','4');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 0.0 ,8.6,80.0,'A','T130402','SCA-1025',
 'ISIC-2010-224','ISIE-TWM-2020-01','4');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 0.0 ,9.6,80.0,'A','T139911','SCD-1007',
 'ISIC-2010-224','ISIE-TWM-2020-01','4');
 
 --quinto semestre
-
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
-VALUES ('20130026', 0.0 ,7.0,80.0,'A','T130701','SCC-1017',
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
+VALUES ('20130026', 0.0 ,7.0,80.0,'A','T130211','SCC-1017',
 'ISIC-2010-224','ISIE-TWM-2020-01','5');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
-VALUES ('20130026', 0.0 ,9.9,80.0,'A','T130211','SCC-1017',
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
+VALUES ('20130026', 0.0 ,9.9,80.0,'A','T139807','SCC-1010',
 'ISIC-2010-224','ISIE-TWM-2020-01','5');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
-VALUES ('20130026', 0.0 ,9.0,80.0,'A','T139807','SCC-1010',
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
+VALUES ('20130026', 0.0 ,9.0,80.0,'A','T139510','AEB-1055',
 'ISIC-2010-224','ISIE-TWM-2020-01','5');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
-VALUES ('20130026', 0.0 ,9.0,80.0,'A','T131304','AEB-1055',
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
+VALUES ('20130026', 0.0 ,8.6,80.0,'A','T139510','AEC-1061',
 'ISIC-2010-224','ISIE-TWM-2020-01','5');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
-VALUES ('20130026', 0.0 ,8.6,80.0,'A','T139510','AEC-1061 ',
-'ISIC-2010-224','ISIE-TWM-2020-01','5');
-
-INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 0.0 ,9.6,80.0,'A','T138508','AEC-1034',
 'ISIC-2010-224','ISIE-TWM-2020-01','5');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 0.0 ,9.6,80.0,'A','T131506','ACA-0909',
 'ISIC-2010-224','ISIE-TWM-2020-01','5');
 
 --sexto semestre 
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 0.0 ,7.0,80.0,'A','T130114','SCC-1005',
 'ISIC-2010-224','ISIE-TWM-2020-01','6');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 0.0 ,9.9,80.0,'A','T130016','SCD-1011',
 'ISIC-2010-224','ISIE-TWM-2020-01','6');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 0.0 ,9.0,80.0,'A','T130818','SCD-1015',
 'ISIC-2010-224','ISIE-TWM-2020-01','6');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 0.0 ,9.0,80.0,'A','T130026','SCA-1026',
 'ISIC-2010-224','ISIE-TWM-2020-01','6');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 0.0 ,8.6,80.0,'A','T138508','SCD-1021',
 'ISIC-2010-224','ISIE-TWM-2020-01','6');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 0.0 ,9.6,80.0,'A','T139214','ACA-0910',
 'ISIC-2010-224','ISIE-TWM-2020-01','6');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 0.0 ,9.6,80.0,'A','T139415','SCC-1014',
 'ISIC-2010-224','ISIE-TWM-2020-01','6');
 
+--septimo semestre
+INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+VALUES ('20130026', 0.0 ,7.0,80.0,'A','T131119','SCD-1016',
+'ISIC-2010-224','ISIE-TWM-2020-01','7');
 
+INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+VALUES ('20130026', 0.0 ,9.9,80.0,'A','T130504','SCG-1009',
+'ISIC-2010-224','ISIE-TWM-2020-01','7');
+
+--progra logi - ligada(IA) - rerpobada
+INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+VALUES ('20130026', 5.0 ,4.0,80.0,'A','T139912','SCC-1019',
+'ISIC-2010-224','ISIE-TWM-2020-01','7');
+
+INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+VALUES ('20130026', 0.0 ,9.0,80.0,'A','T138408','TWM-2003',
+'ISIC-2010-224','ISIE-TWM-2020-01','7');
+
+INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+VALUES ('20130026', 0.0 ,8.6,80.0,'A','T137104','SCD-1004',
+'ISIC-2010-224','ISIE-TWM-2020-01','7');
+
+INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+VALUES ('20130026', 0.0 ,9.6,80.0,'A','T139416','TWD-2001',
+'ISIC-2010-224','ISIE-TWM-2020-01','7');
+
+--octavo
+-- INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
+-- fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+-- VALUES ('20130026', 0.0 ,7.0,80.0,'A','T137103','SCC-1022',
+-- 'ISIC-2010-224','ISIE-TWM-2020-01','8');
+
+-- INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
+-- fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+-- VALUES ('20130026', 0.0 ,9.9,80.0,'A','T131507','TWD-2002',
+-- 'ISIC-2010-224','ISIE-TWM-2020-01','8');
+
+-- INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
+-- fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+-- VALUES ('20130026', 0.0 ,9.0,80.0,'A','T139106','SCA-1002',
+-- 'ISIC-2010-224','ISIE-TWM-2020-01','8');
+
+-- INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
+-- fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+-- VALUES ('20130026', 0.0 ,9.0,80.0,'A','T138213','TWD-2004',
+-- 'ISIC-2010-224','ISIE-TWM-2020-01','8');
+
+-- INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
+-- fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+-- VALUES ('20130026', 0.0 ,8.6,80.0,'A','T130614','SCB-1001',
+-- 'ISIC-2010-224','ISIE-TWM-2020-01','8');
+
+-- INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
+-- fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+-- VALUES ('20130026', 0.0 ,9.6,80.0,'A','T139416','SCC-1023',
+-- 'ISIC-2010-224','ISIE-TWM-2020-01','8');
+
+-- INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
+-- fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+-- VALUES ('20130026', 0.0 ,9.6,80.0,'A','T131013','TWD-2005',
+-- 'ISIC-2010-224','ISIE-TWM-2020-01','8');
 --------------------------------------------------------------------------------------------
 --valores para la tabla de kardex
 -------------
