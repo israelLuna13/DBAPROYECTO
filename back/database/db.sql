@@ -124,20 +124,145 @@ CREATE TABLE horas
 -- Prerrequisitos
 CREATE TABLE Prerrequisitos
 (
-    cve_pre VARCHAR(5) ,
+    cveMateria_pre VARCHAR(10),
     fkMateria_pre VARCHAR(10),
     fkPlanE_pre VARCHAR(50),
     fkEspecialidad_pre VARCHAR(50),
-    fkSemestre_pre VARCHAR(20)
-
-        --Primary Key
-        PRIMARY KEY(cve_pre,fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre)
-        -- Foreign keys
-        FOREIGN KEY(fkMateria,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre) 
-    REFERENCES materiaPlanE(fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
+    fkSemestre_pre VARCHAR(20),
+     --Primary Key
+    PRIMARY KEY(cveMateria_pre,fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre),
+    -- Foreign keys
+    FOREIGN KEY(fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre) 
+    REFERENCES materiaPlanE(fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe,semestre_mpe),
+    FOREIGN KEY(cveMateria_pre)
+    REFERENCES materia(cve_m)
 );
 
+--valores para prerequisitos
+--primer semestre 
+-- calculo integral (2 semestre) depende de calculo dieferencia (1 semestre)
+INSERT INTO prerrequisitos (cveMateria_pre, fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre)
+VALUES ('ACF-0902', 'ACC-0907','ISIC-2010-224','ISIE-TWM-2020-01','1');
 
+-- progra orientada a objetos (2 semestre) depende de fundamentos de progra (1 semestre)
+INSERT INTO prerrequisitos (cveMateria_pre, fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre)
+VALUES ('IQC-1024', 'SCD-1008','ISIC-2010-224','ISIE-TWM-2020-01','1');
+
+--segundo semestre 
+-- calculo vectorial (3 semestre) depende calculo integral (2 semestre)
+INSERT INTO prerrequisitos (cveMateria_pre, fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre)
+VALUES ('ACF-0904', 'ACF-0902','ISIC-2010-224','ISIE-TWM-2020-01','2');
+
+-- estructura de datos (3 semestre) depende progra orientada a obj (2 semestre)
+INSERT INTO prerrequisitos (cveMateria_pre, fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre)
+VALUES ('AED-1026', 'IQC-1024','ISIC-2010-224','ISIE-TWM-2020-01','2');
+
+-- fundamentos de bd (3 semestre) depende progra orientada a obj (2 semestre)
+INSERT INTO prerrequisitos (cveMateria_pre, fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre)
+VALUES ('AEF-1031', 'IQC-1024','ISIC-2010-224','ISIE-TWM-2020-01','2');
+
+
+-- investigacion de operaciones (3 semestre) depende algebra lineal (2 semestre)
+INSERT INTO prerrequisitos (cveMateria_pre, fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre)
+VALUES ('SCC-1013', 'ACF-0903','ISIC-2010-224','ISIE-TWM-2020-01','2');
+
+-- investigacion de operaciones (3 semestre) depende prob y estadistica (2 semestre)
+INSERT INTO prerrequisitos (cveMateria_pre, fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre)
+VALUES ('SCC-1013', 'AEC-1053','ISIC-2010-224','ISIE-TWM-2020-01','2');
+
+
+--tercer semestre
+
+-- ecuaciones diferenciales (4 semestre) depende calculo vectorial (3 semestre)
+INSERT INTO prerrequisitos (cveMateria_pre, fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre)
+VALUES ('ACF-0905', 'ACF-0904','ISIC-2010-224','ISIE-TWM-2020-01','3');
+
+-- topicos (4 semestre) depende estructura de datos (3 semestre)
+INSERT INTO prerrequisitos (cveMateria_pre, fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre)
+VALUES ('SCD-1007', 'AED-1026','ISIC-2010-224','ISIE-TWM-2020-01','3');
+
+-- automatas 1 (6 semestre) depende estructura de datos (3 semestre)
+INSERT INTO prerrequisitos (cveMateria_pre, fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre)
+VALUES ('SCD-1015', 'AED-1026','ISIC-2010-224','ISIE-TWM-2020-01','3');
+
+-- graficacion (5 semestre) depende estructura de datos (3 semestre)
+INSERT INTO prerrequisitos (cveMateria_pre, fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre)
+VALUES ('SCC-1010', 'AED-1026','ISIC-2010-224','ISIE-TWM-2020-01','3');
+
+-- so (5 semestre) depende estructura de datos (3 semestre)
+INSERT INTO prerrequisitos (cveMateria_pre, fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre)
+VALUES ('AEC-1061', 'AED-1026','ISIC-2010-224','ISIE-TWM-2020-01','3');
+
+-- taller de db (4 semestre) depende fundamentos bd (3 semestre)
+INSERT INTO prerrequisitos (cveMateria_pre, fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre)
+VALUES ('SCA-1025', 'AEF-1031','ISIC-2010-224','ISIE-TWM-2020-01','3');
+
+-- simulacion (4 semestre) depende investigacion de oper (3 semestre)
+INSERT INTO prerrequisitos (cveMateria_pre, fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre)
+VALUES ('SCD-1022', 'SCC-1013','ISIC-2010-224','ISIE-TWM-2020-01','3');
+
+--PRINCIPIOPS ELECT. Y APLICACIONES DIGITALES (4 semestre) depende de fisica general 
+INSERT INTO prerrequisitos (cveMateria_pre, fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre)
+VALUES ('SCD-1018', 'SCF-1016','ISIC-2010-224','ISIE-TWM-2020-01','3');
+
+-- cuarto semestre
+
+-- ingenieria de software (5 semestre) depende FUNDAMENTOS DE INGENIERÍA DE SOFTWARE (4 semestre)
+INSERT INTO prerrequisitos (cveMateria_pre, fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre)
+VALUES ('SCD-1011', 'SCC-1007','ISIC-2010-224','ISIE-TWM-2020-01','4');
+
+-- progra web (5 semestre) depende taller db (4 semestre)
+INSERT INTO prerrequisitos (cveMateria_pre, fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre)
+VALUES ('AEB-1055', 'SCA-1025','ISIC-2010-224','ISIE-TWM-2020-01','4');
+
+-- fundamentos tele (5 semestre) PRINCIPIOPS ELECT. Y APLICACIONES DIGITALES  (4 semestre)
+INSERT INTO prerrequisitos (cveMateria_pre, fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre)
+VALUES ('AEC-1034', 'SCD-1018','ISIC-2010-224','ISIE-TWM-2020-01','4');
+
+-- arquitectura (5 semestre) PRINCIPIOPS ELECT. Y APLICACIONES DIGITALES  (4 semestre)
+INSERT INTO prerrequisitos (cveMateria_pre, fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre)
+VALUES ('SCD-1003', 'SCD-1018','ISIC-2010-224','ISIE-TWM-2020-01','4');
+
+
+-- quinto semestre 
+-- taller so (6 semestre)depende   depende so  (5 semestre)
+INSERT INTO prerrequisitos (cveMateria_pre, fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre)
+VALUES ('SCA-1026', 'AEC-1061','ISIC-2010-224','ISIE-TWM-2020-01','5');
+
+-- pila 1 (7 semestre)depende  progra web  (5 semestre)
+INSERT INTO prerrequisitos (cveMateria_pre, fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre)
+VALUES ('SCC-1019', 'AEB-1055','ISIC-2010-224','ISIE-TWM-2020-01','5');
+
+-- redes (6 semestre) depende  fundamentos tele  (5 semestre)
+INSERT INTO prerrequisitos (cveMateria_pre, fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre)
+VALUES ('SCD-1021', 'AEC-1034','ISIC-2010-224','ISIE-TWM-2020-01','5');
+
+-- ensamblador (6 semestre) depende  arquitectura   (5 semestre)
+INSERT INTO prerrequisitos (cveMateria_pre, fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre)
+VALUES ('SCC-1014', 'SCD-1003','ISIC-2010-224','ISIE-TWM-2020-01','5');
+
+
+-- taller 2 (6 semestre)  depende taller 1   (5 semestre)
+INSERT INTO prerrequisitos (cveMateria_pre, fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre)
+VALUES ('ACA-0910', 'ACA-0909','ISIC-2010-224','ISIE-TWM-2020-01','5');
+
+--sexto semestre
+-- automatas 2 (7 semestre)  depende automatas   (1 semestre)
+INSERT INTO prerrequisitos (cveMateria_pre, fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre)
+VALUES ('SCD-1016', 'SCD-1015','ISIC-2010-224','ISIE-TWM-2020-01','6');
+
+-- gestion de proy (7 semestre)  ingenieria software  (6 semestre)
+INSERT INTO prerrequisitos (cveMateria_pre, fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre)
+VALUES ('SCG-1009', 'SCD-1011','ISIC-2010-224','ISIE-TWM-2020-01','6');
+
+-- conmuta (7 semestre)  redes  (6 semestre)
+INSERT INTO prerrequisitos (cveMateria_pre, fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre)
+VALUES ('SCD-1004', 'SCD-1021','ISIC-2010-224','ISIE-TWM-2020-01','6');
+
+--septimo 
+-- IA (8 semestre)  progra logica y funcional  (7 semestre)
+INSERT INTO prerrequisitos (cveMateria_pre, fkMateria_pre,fkPlanE_pre,fkEspecialidad_pre,fkSemestre_pre)
+VALUES ('SCC-1022', 'SCC-1019','ISIC-2010-224','ISIE-TWM-2020-01','7');
 
 -- valores para la tabla materiaPlanE
 
@@ -248,14 +373,13 @@ VALUES ('2', 'AEC-1053','ISIC-2010-224','ISIE-TWM-2020-01');
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
 VALUES ('2', 'IQC-1024','ISIC-2010-224','ISIE-TWM-2020-01');
 
--- analisis de fluidos
+-- algebra lineal
+INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
+VALUES ('2', 'ACF-0903','ISIC-2010-224','ISIE-TWM-2020-01');
+
+--quimica
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
 VALUES ('2', 'MTC-1003','ISIC-2010-224','ISIE-TWM-2020-01');
-
---dinamica
-INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe,fkPlanE_mpe,fkEspecialidad_mpe)
-VALUES ('2', 'AED-1391','ISIC-2010-224','ISIE-TWM-2020-01');
-
 -----------------------------------------------------------------------------------------
 
 --                                                   --INGENIERIA QUIMICA
@@ -329,7 +453,7 @@ VALUES ('3', 'ACF-0904','ISIC-2010-224','ISIE-TWM-2020-01');
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe, fkPlanE_mpe, fkEspecialidad_mpe)
 VALUES ('3', 'AED-1026','ISIC-2010-224','ISIE-TWM-2020-01');
 
---control
+-- control
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe, fkPlanE_mpe, fkEspecialidad_mpe)
 VALUES ('3', 'MTJ-1006','ISIC-2010-224','ISIE-TWM-2020-01');
 
@@ -383,6 +507,10 @@ VALUES ('5', 'AEC-1034','ISIC-2010-224','ISIE-TWM-2020-01');
 --taller de investigacion 1
 INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe, fkPlanE_mpe, fkEspecialidad_mpe)
 VALUES ('5', 'ACA-0909','ISIC-2010-224','ISIE-TWM-2020-01');
+--arquitectura
+
+INSERT INTO materiaPlanE (semestre_mpe, fkMateria_mpe, fkPlanE_mpe, fkEspecialidad_mpe)
+VALUES ('5', 'SCD-1003','ISIC-2010-224','ISIE-TWM-2020-01');
 
 
 -- 6to semestre sistemas
@@ -551,13 +679,13 @@ VALUES ('A', 'AGO-DIC','T139311','MTC-1003','ISIC-2010-224','ISIE-TWM-2020-01','
 INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
 VALUES ('B', 'AGO-DIC','T139311','MTC-1003','ISIC-2010-224','ISIE-TWM-2020-01','2');
 
---grupo a dinamica 	DE SANTIAGO	BARRAGAN	MAYELA ESTHER
+--grupo a dinamica(quimica) 	DE SANTIAGO	BARRAGAN	MAYELA ESTHER
 INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
-VALUES ('A', 'AGO-DIC','T138406','AED-1391','ISIC-2010-224','ISIE-TWM-2020-01','2');
+VALUES ('A', 'AGO-DIC','T138406','ACF-0903','ISIC-2010-224','ISIE-TWM-2020-01','2');
 
---grupo b fdinamica 	DE SANTIAGO	BARRAGAN	MAYELA ESTHER
+--grupo b fdinamica (quimica)	DE SANTIAGO	BARRAGAN	MAYELA ESTHER
 INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
-VALUES ('B', 'AGO-DIC','T138406','AED-1391','ISIC-2010-224','ISIE-TWM-2020-01','2');
+VALUES ('B', 'AGO-DIC','T138406','ACF-0903','ISIC-2010-224','ISIE-TWM-2020-01','2');
 
 
 
@@ -706,6 +834,15 @@ VALUES ('A', 'AGO-DIC','T131506','ACA-0909','ISIC-2010-224','ISIE-TWM-2020-01','
 --taller 1 B
 INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
 VALUES ('B', 'AGO-DIC','T131506','ACA-0909','ISIC-2010-224','ISIE-TWM-2020-01','5');
+
+--arquitectuta A
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('A', 'AGO-DIC','T131506','SCD-1003','ISIC-2010-224','ISIE-TWM-2020-01','5');
+--arquitectura B
+INSERT INTO grupo (cve_g, semestre_g,fkPersonal_g,fkMateria_g,fkPlanE_g,fkEspecialidad_g,fksemestre_g)
+VALUES ('B', 'AGO-DIC','T131506','SCD-1003','ISIC-2010-224','ISIE-TWM-2020-01','5');
+
+
 
 -- =============================================================================================================
 
@@ -922,7 +1059,7 @@ VALUES ('20130026', 0.0 ,8.6,80.0,'A','T139311','MTC-1003',
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
 fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
-VALUES ('20130026', 0.0 ,9.6,80.0,'A','T138406','AED-1391',
+VALUES ('20130026', 0.0 ,9.6,80.0,'A','T138406','ACF-0903',
 'ISIC-2010-224','ISIE-TWM-2020-01','2');
 
 --tercer semestre 
@@ -1026,6 +1163,12 @@ fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 0.0 ,9.6,80.0,'A','T131506','ACA-0909',
 'ISIC-2010-224','ISIE-TWM-2020-01','5');
 
+INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
+VALUES ('20130026', 0.0 ,9.6,80.0,'A','T131506','SCD-1003',
+'ISIC-2010-224','ISIE-TWM-2020-01','5');
+
+
 --sexto semestre 
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
@@ -1065,33 +1208,33 @@ VALUES ('20130026', 0.0 ,9.6,80.0,'A','T139415','SCC-1014',
 
 --septimo semestre
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 0.0 ,7.0,80.0,'A','T131119','SCD-1016',
 'ISIC-2010-224','ISIE-TWM-2020-01','7');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 0.0 ,9.9,80.0,'A','T130504','SCG-1009',
 'ISIC-2010-224','ISIE-TWM-2020-01','7');
 
 --progra logi - ligada(IA) - rerpobada
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 5.0 ,4.0,80.0,'A','T139912','SCC-1019',
 'ISIC-2010-224','ISIE-TWM-2020-01','7');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 0.0 ,9.0,80.0,'A','T138408','TWM-2003',
 'ISIC-2010-224','ISIE-TWM-2020-01','7');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 0.0 ,8.6,80.0,'A','T137104','SCD-1004',
 'ISIC-2010-224','ISIE-TWM-2020-01','7');
 
 INSERT INTO kardex (fkAlumno_k,calificacionR_k, calificacionP_k,promedio_k,
-fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_)
+fkGrupo_k,fkPersonal_k,fkMateria_k,fkPlanE_k,fkEspecialidad_k,fksemestre_k)
 VALUES ('20130026', 0.0 ,9.6,80.0,'A','T139416','TWD-2001',
 'ISIC-2010-224','ISIE-TWM-2020-01','7');
 
@@ -1178,7 +1321,29 @@ select ingreso_a, periodo_a from alumnos where control_a = '20130026';
 select * from grupo where semestre_g = (select periodo_a from alumnos where control_a = 'D1813008');
 
 --obtener los alumnos que ingresaron en 2023
-select control_a,nombre_a, ingreso_a from alumnos where ingreso_a = '2023'                                                                             limit 20;
+select control_a,nombre_a, ingreso_a from alumnos where ingreso_a = '2023' limit 20;
+
+--nombre y calificacion de la materia reprobada
+select calificacionr_k,calificacionp_k,nombre_m from kardex
+ inner join materia on kardex.fkmateria_k = materia.cve_m                                                                                     
+where calificacionp_k < 7 and calificacionr_k < 7;
+
+--calificacion de regulas y parcial 
+select calificacionr_k,calificacionp_k,nombre_m from kardex
+ inner join materia on kardex.fkmateria_k = materia.cve_m;
+
+--calificacion diferente de 0 pero mayor que 6 , verificamos si paso en regulas 
+select calificacionr_k,calificacionp_k,nombre_m from kardex
+inner join materia on kardex.fkmateria_k = materia.cve_m where calificacionr_k != 0
+and calificacionr_k > 6;
+
+--calificacion diferente de 0 pero mayor que 6 , verificamos si reprobo en regulas 
+select calificacionr_k,calificacionp_k,nombre_m from kardex
+inner join materia on kardex.fkmateria_k = materia.cve_m where calificacionr_k != 0
+
+and calificacionr_k < 6;
+--materias que le faltan 
+
 
 --inscription
 -- obtener numero control 
@@ -1189,3 +1354,11 @@ select control_a,nombre_a, ingreso_a from alumnos where ingreso_a = '2023'      
 -- comparar el periodo del alumno con los periodos de los grupos
 -- validar si el periodo del alumno coincide con el de los grupos , si coincide quiere decir que es nuevo ingreso , si no aqui acaba 
 
+--reincripcion
+-- obtener las calificaciones regulas y parcial 
+-- validar si se paso en regulas o parcial o si reprobo
+-- si en la calificacion parcial es > 6 entonces paso y ya no hay que validar la calif regulas 
+-- mostrar las materias que ya aprobo de cada semestre por separado 
+-- mostrar las materias que le faltan pasar , incluyendo la reprobada 
+-- si reprueba una materia, cuando le toque seleccionar materias del siguiente semestre , tendra que elegir la materia reprobada si o si 
+-- solo podra elegir materias del siguiente semestre 
