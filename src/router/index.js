@@ -44,6 +44,14 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/inscription/inscription.vue'),
     meta: { requiresAuth: true } // Esta meta indica que requiere autenticación
 
+  },
+  {
+    path: '/materias',
+    name: 'materias',
+    // component: HomeView
+    component: () => import(/* webpackChunkName: "about" */ '../views/materias/Materias.vue'),
+    meta: { requiresAuth: true } // Esta meta indica que requiere autenticación
+
   },]
 
 const router = createRouter({

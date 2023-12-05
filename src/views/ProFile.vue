@@ -44,7 +44,7 @@
                                 </v-btn>
                         </p>
                            <p v-else>
-                                <v-btn @click="reinscription">
+                                <v-btn @click="$router.push({name:'materias'})">
                                  Reinscripcion
                                 </v-btn>
                            </p>
@@ -62,7 +62,11 @@
             </v-col>
         </v-row>
 
-        <v-row justify="center">
+        <!-- validamos si se ejecuto el metodo de reinscription 
+        SI SE EJECUTO, MATERIASPASADAS NO SERA 0 -->
+         <!-- inscripcion -->
+        <div v-if="materiasPasadas.length == 0">
+            <v-row justify="center" >
             <v-col md="6" sm="6">
                 <v-card>
                     <v-card-title class="text-uppercase">Carga Academica</v-card-title>
@@ -74,11 +78,31 @@
                        </li>
                     
                     </v-card-text>
-
-
             </v-card>
             </v-col>
         </v-row>
+        </div>
+
+        <!-- Reinscripcion -->
+        <div v-else>
+            <v-row justify="center" >
+            <v-col md="6" sm="6">
+                <v-card>
+                    <v-card-title class="text-uppercase">Materias pasadas</v-card-title>
+                    <v-card-text>
+                        <li v-for="materias in materiasPasadas" :key="materias.cve_m">
+
+                            <p>cveMateria:{{ materias.cve_m }} - Materia:{{ materias.nombre_m }}</p> 
+                            
+                       </li>
+                    
+                    </v-card-text>
+            </v-card>
+            </v-col>
+        </v-row>
+
+        </div>
+      
     </v-container>
 </template>
 
@@ -90,6 +114,7 @@ export default {
     data: () => ({
         isVisible: true,
         grupos:[],
+        materiasPasadas:[],
         user: { rol: "Default", name: "", ncontrol: "" },
         //numControl:sessionStorage.getItem('ncontrol')
 
@@ -139,6 +164,32 @@ if (userData && userData.ncontrol) {
     },
 
     async reinscription(){
+        // Obtener el objeto del sessionStorage
+        const userData = JSON.parse(sessionStorage.getItem('session'));
+        console.log(userData)
+
+        // Verificar que userData esté definido y tenga un valor válido
+        if (userData && userData.ncontrol) {
+        const userId = userData.ncontrol;
+
+        try {
+            // Hacer la solicitud GET al servidor con el ID como parte de la URL
+            const response = await this.axios.get(`/reinscription/${userId}`);
+            //this.grupos = response.data.grupos[0];
+            this.materiasPasadas = response.data.materias;
+            console.log('Solicitud GET exitosa:');// response.data.grupos[0]);
+
+            // Puedes manejar la respuesta de la solicitud aquí según tus necesidades
+
+        } catch (error) {
+            console.error('Error en la solicitud GET:', error);
+
+            // Puedes manejar el error de la solicitud aquí según tus necesidades
+        }
+        } else {
+        console.error('Error: userData es nulo o no tiene la propiedad ncontrol.');
+        }
+
 
 
     },

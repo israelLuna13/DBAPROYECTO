@@ -1340,9 +1340,17 @@ and calificacionr_k > 6;
 --calificacion diferente de 0 pero mayor que 6 , verificamos si reprobo en regulas 
 select calificacionr_k,calificacionp_k,nombre_m from kardex
 inner join materia on kardex.fkmateria_k = materia.cve_m where calificacionr_k != 0
-
 and calificacionr_k < 6;
+
+--materias que paso en primeras
+select fkmateria_k,cve_m,nombre_m from kardex inner join materia on kardex.fkmateria_k = cve_m where calificacionp_k > 6;  
+
+-- materias paso en regulas
+select fkmateria_k,cve_m,nombre_m from kardex inner join materia on kardex.fkmateria_k = cve_m where calificacionr_k > 6;  
+
+
 --materias que le faltan 
+
 
 
 --inscription
