@@ -54,10 +54,7 @@
 
                     </v-card>
 
-
                 </v-card>
-
-
 
             </v-col>
         </v-row>
