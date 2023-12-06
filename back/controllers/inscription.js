@@ -79,15 +79,14 @@ inscription.materias_reprobadas = async(req,res)=>{
   //materias aprobadas en primeras y segundas 
   try {
    // const id = req.params.userId;
-    let cali = 6
+    let cali = 7
 
-    const materias = ( await pool.query('select cve_m,nombre_m from kardex inner join materia on kardex.fkmateria_k = cve_m where calificacionp_k < $1;',[cali])).rows
-    const materias2 = ( await pool.query('select cve_m,nombre_m from kardex inner join materia on kardex.fkmateria_k = cve_m where calificacionp_k < $1;',[cali])).rows
+    const materias = ( await pool.query('SELECT cve_m, nombre_m FROM kardex INNER JOIN materia ON kardex.fkmateria_k = cve_m WHERE calificacionp_k < $1 AND calificacionr_k < $1;',[cali])).rows
+  //  const materias2 = ( await pool.query('select cve_m,nombre_m from kardex inner join materia on kardex.fkmateria_k = cve_m where calificacionp_k < $1;',[cali])).rows
 
     if (materias.length > 0){
       res.status(200).json({
         materias:materias,
-        materias1:materias2
       })
 
     }
@@ -113,13 +112,13 @@ inscription.materias_pasadas = async(req,res)=>{
    // const id = req.params.userId;
     let cali = 6
 
-    const materias = ( await pool.query('select cve_m,nombre_m from kardex inner join materia on kardex.fkmateria_k = cve_m where calificacionp_k > $1;',[cali])).rows
-    const materias2 = ( await pool.query('select cve_m,nombre_m from kardex inner join materia on kardex.fkmateria_k = cve_m where calificacionp_k > $1;',[cali])).rows
+    const materias = ( await pool.query('SELECT cve_m, nombre_m FROM kardex INNER JOIN materia ON kardex.fkmateria_k = cve_m WHERE calificacionp_k > $1 OR calificacionr_k > $1;',[cali])).rows
+    //const materias2 = ( await pool.query('select cve_m,nombre_m from kardex inner join materia on kardex.fkmateria_k = cve_m where calificacionp_k > $1;',[cali])).rows
 
-    if (materias.length > 0){
+    if (materias.length > 0 ){
       res.status(200).json({
         materias:materias,
-        materias1:materias2
+       
       })
 
     }

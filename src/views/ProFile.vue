@@ -44,9 +44,15 @@
                                 </v-btn>
                         </p>
                            <p v-else>
-                                <v-btn @click="$router.push({name:'materias'})">
-                                 Reinscripcion
+                                <v-btn @click="handleClick">
+                                    <!-- <v-btn @click="$router.push({name:'materias'})"></v-btn> -->
+                                 Kardex
                                 </v-btn>
+
+                                <v-btn @click="$router.push({name:'materias'})">
+                                    Seleccionar Materias
+                                </v-btn>
+
                            </p>
 
                     </v-card-text>
@@ -62,24 +68,38 @@
         <!-- validamos si se ejecuto el metodo de reinscription 
         SI SE EJECUTO, MATERIASPASADAS NO SERA 0 -->
          <!-- inscripcion -->
-        <div v-if="materiasPasadas.length == 0">
-            <v-row justify="center" >
-            <v-col md="6" sm="6">
-                <v-card>
-                    <v-card-title class="text-uppercase">Carga Academica</v-card-title>
-                    <v-card-text>
-                        <li v-for="grupo in grupos" :key="grupo.cve_g">
+        <div v-if="user.ingreso === 2023 && user.periodo === 'AGO-DIC'">
+            <v-row justify="center">
+      <!-- Primer conjunto en el lado izquierdo -->
+      <v-col md="6" sm="6">
+        <v-card>
+          <v-card-title class="text-uppercase">Carga academica</v-card-title>
+          <v-card-text>
+            <li v-for="grupo in grupos" :key="grupo.cve_g">
+              <p>Grupo:{{ grupo.cve_g }} - Materia:{{ grupo.nombre_m }} - Profesor : {{ grupo.nombre_per }}</p>
+            </li>
+          </v-card-text>
+        </v-card>
+      </v-col>
 
-                            <p>Grupo:{{ grupo.cve_g }} - Materia:{{ grupo.nombre_m }} - Profesor : {{ grupo.nombre_per }}</p> 
-                            
-                       </li>
-                    
-                    </v-card-text>
-            </v-card>
-            </v-col>
-        </v-row>
+      <!-- Segundo conjunto en el lado derecho
+      <v-col md="6" sm="6">
+        <v-card>
+          <v-card-title class="text-uppercase">Materias reprobadas</v-card-title>
+          <v-card-text>
+            <li v-for="grupo in grupos" :key="grupo.cve_g">
+              <p>Grupo:{{ grupo.cve_g }} - Materia:{{ grupo.nombre_m }} - Profesor : {{ grupo.nombre_per }}</p>
+            </li>
+          </v-card-text>
+        </v-card>
+      </v-col>
+     -->
+    </v-row>
         </div>
 
+    
+    
+    
         <!-- Reinscripcion -->
         <div v-else>
             <v-row justify="center" >
@@ -96,7 +116,23 @@
                     </v-card-text>
             </v-card>
             </v-col>
-        </v-row>
+
+                  <!-- Segundo conjunto en el lado derecho -->
+      <v-col md="6" sm="6">
+        <v-card>
+          <v-card-title class="text-uppercase">Materias reprobadas</v-card-title>
+          <v-card-text>
+            <li v-for="materias in materiasReprobadas" :key="materias.cve_m">
+
+                <p>cveMateria:{{ materias.cve_m }} - Materia:{{ materias.nombre_m }}</p> 
+
+            </li>
+
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+    
 
         </div>
       
@@ -112,6 +148,7 @@ export default {
         isVisible: true,
         grupos:[],
         materiasPasadas:[],
+        materiasReprobadas:[],
         user: { rol: "Default", name: "", ncontrol: "" },
         //numControl:sessionStorage.getItem('ncontrol')
 
@@ -160,7 +197,7 @@ if (userData && userData.ncontrol) {
 
     },
 
-    async reinscription(){
+    async materiasAprobadas(){
         // Obtener el objeto del sessionStorage
         const userData = JSON.parse(sessionStorage.getItem('session'));
         console.log(userData)
@@ -189,6 +226,41 @@ if (userData && userData.ncontrol) {
 
 
 
+    },
+
+    async materiaReprobadas(){
+        // Obtener el objeto del sessionStorage
+        const userData = JSON.parse(sessionStorage.getItem('session'));
+        console.log(userData)
+
+        // Verificar que userData esté definido y tenga un valor válido
+        if (userData && userData.ncontrol) {
+        const userId = userData.ncontrol;
+
+        try {
+            // Hacer la solicitud GET al servidor con el ID como parte de la URL
+            const response = await this.axios.get(`/reinscription/${userId}/reprobada`);
+            //this.grupos = response.data.grupos[0];
+            this.materiasReprobadas = response.data.materias;
+            console.log('Solicitud GET exitosa:');// response.data.grupos[0]);
+
+            // Puedes manejar la respuesta de la solicitud aquí según tus necesidades
+
+        } catch (error) {
+            console.error('Error en la solicitud GET:', error);
+
+            // Puedes manejar el error de la solicitud aquí según tus necesidades
+        }
+        } else {
+        console.error('Error: userData es nulo o no tiene la propiedad ncontrol.');
+        }
+
+
+
+    },
+    handleClick() {
+      this.materiaReprobadas();
+      this.materiasAprobadas();
     },
 
 
