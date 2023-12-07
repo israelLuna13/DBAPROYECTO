@@ -44,7 +44,7 @@
                                 </v-btn>
                         </p>
                            <p v-else>
-                                <v-btn @click="handleClick">
+                                <v-btn @click="handleClick" class="mr-2">
                                     <!-- <v-btn @click="$router.push({name:'materias'})"></v-btn> -->
                                  Kardex
                                 </v-btn>
@@ -107,11 +107,17 @@
                 <v-card>
                     <v-card-title class="text-uppercase">Materias pasadas</v-card-title>
                     <v-card-text>
-                        <li v-for="materias in materiasPasadas" :key="materias.cve_m">
+                      <!-- <v-data-table :headers="headers" :items="materiasPasadas">
+    <template v-slot:items="props">
+      <td>{{ props.item.cve_m }}</td>
+      <td>{{ props.item.nombre_m }}</td>
+    </template>
+  </v-data-table> -->
+                         <li v-for="materias in materiasPasadas" :key="materias.cve_m">
 
-                            <p>cveMateria:{{ materias.cve_m }} - Materia:{{ materias.nombre_m }}</p> 
+                            <p>{{ materias.cve_m }} : {{ materias.nombre_m }}</p> 
                             
-                       </li>
+                       </li> 
                     
                     </v-card-text>
             </v-card>
@@ -124,7 +130,7 @@
           <v-card-text>
             <li v-for="materias in materiasReprobadas" :key="materias.cve_m">
 
-                <p>cveMateria:{{ materias.cve_m }} - Materia:{{ materias.nombre_m }}</p> 
+                <p>{{ materias.cve_m }} :{{ materias.nombre_m }}</p> 
 
             </li>
 
@@ -148,6 +154,10 @@ export default {
         isVisible: true,
         grupos:[],
         materiasPasadas:[],
+        headers: [
+        { text: 'Clave Materia', value: 'cve_m' },
+        { text: 'Materia', value: 'nombre_m' }],
+
         materiasReprobadas:[],
         user: { rol: "Default", name: "", ncontrol: "" },
         //numControl:sessionStorage.getItem('ncontrol')

@@ -124,7 +124,7 @@ inscription.materias_pasadas = async(req,res)=>{
     }
     else 
     res.status(200).json({
-      message:"Esta vacio"
+      message:"Arreglo vacio"
     })
 
     
@@ -137,5 +137,32 @@ inscription.materias_pasadas = async(req,res)=>{
   }
 }
 
+inscription.materias_faltantes = async(req,res)=>{
+  try {
+     // const id = req.params.userId;
+     let cali = 6
+     const materias = ( await pool.query('SELECT mpe.fkmateria_mpe, m.nombre_m, semestre_mpe FROM materiaplane mpe LEFT JOIN kardex k ON mpe.fkmateria_mpe = k.fkmateria_k LEFT JOIN materia m ON mpe.fkmateria_mpe = m.cve_m WHERE k.fkmateria_k IS NULL;')).rows
+     //const materias2 = ( await pool.query('select cve_m,nombre_m from kardex inner join materia on kardex.fkmateria_k = cve_m where calificacionp_k > $1;',[cali])).rows
+ 
+     if (materias.length > 0 ){
+       res.status(200).json({
+         materias:materias,
+        
+       })
+ 
+     }
+     else 
+     res.status(200).json({
+       message:"Esta vacio"
+     })
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({
+      message: 'Error en el servidor',
+      error: error.message,
+    });
+    
+  }
+}
 
 module.exports = inscription;

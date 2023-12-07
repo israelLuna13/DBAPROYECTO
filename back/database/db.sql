@@ -1352,7 +1352,8 @@ select fkmateria_k,cve_m,nombre_m from kardex inner join materia on kardex.fkmat
 select nombre_m  from prerrequisitos INNER JOIN materia  on materia.cve_m = prerrequisitos.cvemateria_pre where fkmateria_pre = 'SCC-1019';
 
 --materias que le faltan 
-SELECT mpe.fkmateria_mpe, m.nombre_m                                                                                                                teclag-# FROM materiaplane mpe
+SELECT mpe.fkmateria_mpe, m.nombre_m                                                                                         
+FROM materiaplane mpe
 LEFT JOIN kardex k ON mpe.fkmateria_mpe = k.fkmateria_k
 LEFT JOIN materia m ON mpe.fkmateria_mpe = m.cve_m
 WHERE k.fkmateria_k IS NULL;
