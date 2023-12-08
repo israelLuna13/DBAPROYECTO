@@ -81,18 +81,22 @@ inscription.materias_reprobadas = async(req,res)=>{
    // const id = req.params.userId;
     let cali = 7
 
+//    const ligada = (await pool.query('SELECT nombre_m FROM prerrequisitos INNER JOIN materia ON materia.cve_m = prerrequisitos.cvemateria_pre WHERE fkmateria_pre IN (SELECT fkmateria_kFROM kardex INNER JOIN materia ON kardex.fkmateria_k = materia.cve_m WHERE calificacionp_k < $1 AND calificacionr_k < $1);',[cali])).rows
+
     const materias = ( await pool.query('SELECT cve_m, nombre_m FROM kardex INNER JOIN materia ON kardex.fkmateria_k = cve_m WHERE calificacionp_k < $1 AND calificacionr_k < $1;',[cali])).rows
   //  const materias2 = ( await pool.query('select cve_m,nombre_m from kardex inner join materia on kardex.fkmateria_k = cve_m where calificacionp_k < $1;',[cali])).rows
 
     if (materias.length > 0){
+     
       res.status(200).json({
         materias:materias,
+
       })
 
     }
     else 
     res.status(200).json({
-      message:"Esta vacio"
+      message:"No tiene materias reprobadas"
     })
 
     
@@ -143,10 +147,12 @@ inscription.materias_faltantes = async(req,res)=>{
      let cali = 6
      const materias = ( await pool.query('SELECT mpe.fkmateria_mpe, m.nombre_m, semestre_mpe FROM materiaplane mpe LEFT JOIN kardex k ON mpe.fkmateria_mpe = k.fkmateria_k LEFT JOIN materia m ON mpe.fkmateria_mpe = m.cve_m WHERE k.fkmateria_k IS NULL;')).rows
      //const materias2 = ( await pool.query('select cve_m,nombre_m from kardex inner join materia on kardex.fkmateria_k = cve_m where calificacionp_k > $1;',[cali])).rows
- 
+    // const ligada = (await pool.query('SELECT nombre_m FROM prerrequisitos INNER JOIN materia ON materia.cve_m = prerrequisitos.cvemateria_pre WHERE fkmateria_pre IN (SELECT fkmateria_k FROM kardex INNER JOIN materia ON kardex.fkmateria_k = materia.cve_m WHERE calificacionp_k < $1 AND calificacionr_k < $1);',[cali])).rows
+
      if (materias.length > 0 ){
        res.status(200).json({
          materias:materias,
+        // ligada:ligada
         
        })
  
@@ -164,5 +170,7 @@ inscription.materias_faltantes = async(req,res)=>{
     
   }
 }
+
+
 
 module.exports = inscription;

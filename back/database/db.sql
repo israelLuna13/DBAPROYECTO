@@ -1351,6 +1351,18 @@ select fkmateria_k,cve_m,nombre_m from kardex inner join materia on kardex.fkmat
 -- materia ligada a la reprobada
 select nombre_m  from prerrequisitos INNER JOIN materia  on materia.cve_m = prerrequisitos.cvemateria_pre where fkmateria_pre = 'SCC-1019';
 
+
+SELECT nombre_m
+FROM prerrequisitos
+INNER JOIN materia ON materia.cve_m = prerrequisitos.cvemateria_pre
+WHERE fkmateria_pre IN (
+    SELECT fkmateria_k
+    FROM kardex
+    INNER JOIN materia ON kardex.fkmateria_k = materia.cve_m
+    WHERE calificacionp_k < 7 AND calificacionr_k < 7
+);
+
+
 --materias que le faltan 
 SELECT mpe.fkmateria_mpe, m.nombre_m                                                                                         
 FROM materiaplane mpe

@@ -4,10 +4,16 @@
          <!-- Componente a la derecha -->
          <v-row class="ml-auto">
         <v-col md="3">
+          <p>
             {{user.nombre}}
+          </p>
+
         </v-col>
         <v-col md="3">
+          <p>
             {{user.ncontrol}}
+          </p>
+
         </v-col>
         <v-col md="3">
             <v-img src="../assets/usuario.png" max-width="40"  alt=""/>
@@ -16,8 +22,8 @@
 
         <v-col>
             <v-btn @click="logout">
-                                 Cerrar Session
-                        </v-btn>
+               Cerrar Session
+            </v-btn>
         </v-col>
 
       </v-row>

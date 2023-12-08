@@ -25,7 +25,10 @@
               <v-list>
                 <v-list-item-group v-if="materias.length > 0">
                   <v-list-item v-for="materia in materias" :key="materia.nombre_m">
-                    <v-btn @click="mostrarDetallesMateria(materia)">{{ materia.nombre_m }}</v-btn>
+                    <v-btn-group>
+                      <v-btn @click="mostrarDetallesMateria(materia)">{{ materia.nombre_m }}</v-btn>
+                    </v-btn-group>
+
                   </v-list-item>
                 </v-list-item-group>
                 <v-list-item v-else>
@@ -62,6 +65,7 @@
       return {
         materias: [],
         materiaSeleccionada:[],
+     //   ligadas:[],
         mostrar:false,
         user: { rol: "Default", name: "", ncontrol: "" },
       };
@@ -80,7 +84,8 @@
           try {
             const response = await this.axios.get(`/reinscription/${userId}/materias`);
             this.materias = response.data.materias;
-            console.log("Solicitud GET exitosa:", this.materias);
+          //  this.ligadas = response.data.ligada;
+          //  console.log("Solicitud GET exitosa:", this.materias);
           } catch (error) {
             console.error("Error en la solicitud GET:", error);
           }
@@ -96,7 +101,39 @@
       mostrarMaterias(){
         this.mostrar=true
 
+      
       },
+      async materiaReprobadas(){
+        // Obtener el objeto del sessionStorage
+        const userData = JSON.parse(sessionStorage.getItem('session'));
+        console.log(userData)
+
+        // Verificar que userData esté definido y tenga un valor válido
+        if (userData && userData.ncontrol) {
+        const userId = userData.ncontrol;
+
+        try {
+            // Hacer la solicitud GET al servidor con el ID como parte de la URL
+            const response = await this.axios.get(`/reinscription/${userId}/reprobada`);
+            //this.grupos = response.data.grupos[0];
+            this.materiasReprobadas = response.data.materias;
+            console.log('Solicitud GET exitosa:');// response.data.grupos[0]);
+
+            // Puedes manejar la respuesta de la solicitud aquí según tus necesidades
+
+        } catch (error) {
+            console.error('Error en la solicitud GET:', error);
+
+            // Puedes manejar el error de la solicitud aquí según tus necesidades
+        }
+        } else {
+        console.error('Error: userData es nulo o no tiene la propiedad ncontrol.');
+        }
+
+
+
+    },
+      
       logout() {
         sessionStorage.removeItem("session");
         this.$router.push("/");
