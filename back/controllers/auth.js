@@ -72,9 +72,9 @@ authentication.signIn = async (req, res) => {
     // Compara la contraseña proporcionada con el hash almacenado
     if (rol == 'personal') {
 
-        const per_info = await(await pool.query(
+        const per_info = await pool.query(
             'SELECT * FROM personal WHERE cve_per =$1',
-            [control])).rows;
+            [control]).rows;
             const has=per_info[0].password_per
           // console.log(password)
 
@@ -108,19 +108,26 @@ authentication.signIn = async (req, res) => {
 
         //alumno
     } else {
-        const alum_has = await(await pool.query(
-            'SELECT control_a,nombre_a,password_a,email_a,ingreso_a,periodo_a FROM alumnos WHERE control_a =$1',
-            [control])).rows;
-            const has=alum_has[0].password_a
-            //console.log(has)
 
-          // console.log(password)
+        // const alum_has = await pool.query(
+        //     'SELECT control_a,nombre_a,password_a,email_a,ingreso_a,periodo_a FROM alumno WHERE control_a =$1',
+        //     [control]).rows;
+
+
+        const alum_has = await pool.query(
+            'SELECT control_a,nombre_a,password_a,email_a,ingreso_a,periodo_a FROM alumnos WHERE control_a =$1',
+            [control]).rows;
+
+            const has=alum_has[0].password_a
+            console.log(has)
+
+          console.log(password)
 
         bcrypt.compare(password,has, (error, resultado) => {
             if (error) {            
              // Ocurrió un error durante la comparación
                 res.status(500).json({
-                message: 'Error al comprar hashes',
+                message: 'Error al comparar hashes',
                 error,
             });
 
@@ -143,7 +150,7 @@ authentication.signIn = async (req, res) => {
                 } else {
                     // La contraseña proporcionada es incorrecta
                     res.status(500).json({
-                        message: 'La contrasena es incorrecta',
+                        message: 'La contraseña es incorrecta',
                         error,
                     });
                 }

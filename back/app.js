@@ -9,7 +9,7 @@ const path =require ('path')
 const app = express();
 //middlewares
 app.use(morgan('tiny'));
-app.use(cors());
+app.use(cors({origin:true}, {credentials:true}, {headers:'*'}, {methods:'*'}));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));//
 app.use(fileUpload({useTempFiles:true}));//uso de archivos temporales
@@ -28,8 +28,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //setings
-app.set('port',  3000);
+app.set('port', 3000);
 
 app.listen(app.get('port'), ()=>{
-    console.log('Server on port' + app.get('port'));
+    console.log('Server on port ' + app.get('port'));
 })

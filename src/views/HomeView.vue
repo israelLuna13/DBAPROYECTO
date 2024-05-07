@@ -112,7 +112,17 @@ export default {
       if(valid)
       {
         try {
-          const res = await this.axios.post('/signin', this.user);
+          const res = await this.axios.post('/signin', this.user, {
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json',
+              'Access-Control-Allow-Origin': '*',
+              'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+              'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+              'Access-Control-Allow-Credentials': true,
+              'Access-Control-Max-Age': 3600
+            }
+          });
           if(res.data.NotFound)
           {
             this.alert={
